@@ -14,4 +14,4 @@ Having a healthy living lifestyle requires a lot of things to do, one is eating 
 
 
 Trello Link: https://trello.com/w/wortheat1
-Git Link: https://github.com/moonboy15/Worth-Eat
+Git Link: https://github.com/moonboy15/Lusog-App
