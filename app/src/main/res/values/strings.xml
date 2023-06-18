@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lusog draft 2 java</string>
+    <string name="healthy_subtext">incl. Benefits, Recipes, Calories and more</string>
+    <string name="healthyHeader">Healthy Food</string>
+    <string name="unhealthy_header">Unhealthy \nFood</string>
+    <string name="unhealthy_subtext">incl. Alternatives, Calories and more</string>
+    <string name="saved_header">Saved Food</string>
+    <string name="saved_subtext">All your food saves in one place</string>
+    <string name="title_activity_login">LoginActivity</string>
+</resources>
