@@ -37,7 +37,7 @@ public class RandomRecipeAdapter extends RecyclerView.Adapter<RandomRecipeViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RandomRecipeViewHolder holder, int position) {
-        holder.textView_title.setText(list.get(position).idMeal);
+        holder.textView_title.setText(list.get(position).strMeal);
         holder.textView_title.setSelected(true);
         holder.textView_categories.setText(list.get(position).strCategory);
         Picasso.get().load((Uri) list.get(position).strImageSource).into(holder.imageView_food);
