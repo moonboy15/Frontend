@@ -1,6 +1,8 @@
 package com.example.lusogitemlist;
 
+//import android.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void didError(String message) {
+            dialog.dismiss();
             Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
 
         }

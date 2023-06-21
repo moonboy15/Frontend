@@ -17,7 +17,7 @@ public class RequestManager {
 
     Context context;
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://www.themealdb.com/json/v1/1/")
+            .baseUrl("https://www.themealdb.com/api/json/v1/1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -27,7 +27,7 @@ public class RequestManager {
 
     public void getRandomRecipes(RandomRecipeResponseListener listener){
         CallRandomRecipes callRandomRecipes = retrofit.create(CallRandomRecipes.class);
-        Call<RandomRecipeApiResponse> call = callRandomRecipes.callRandomRecipe("1");
+        Call<RandomRecipeApiResponse> call = callRandomRecipes.callRandomRecipe("5");
 
         call.enqueue(new Callback<RandomRecipeApiResponse>() {
             @Override
