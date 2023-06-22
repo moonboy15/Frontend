@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.lusogitemlist.Listeners.RandomRecipeResponseListener;
 import com.example.lusogitemlist.Models.RandomRecipeApiResponse;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,9 +27,9 @@ public class RequestManager {
         this.context = context;
     }
 
-    public void getRandomRecipes(RandomRecipeResponseListener listener){
+    public void getRandomRecipes(RandomRecipeResponseListener listener, List<String> tags){
         CallRandomRecipes callRandomRecipes = retrofit.create(CallRandomRecipes.class);
-        Call<RandomRecipeApiResponse> call = callRandomRecipes.callRandomRecipe("1");
+        Call<RandomRecipeApiResponse> call = callRandomRecipes.callRandomRecipe("1", tags);
 
         call.enqueue(new Callback<RandomRecipeApiResponse>() {
             @Override
@@ -49,7 +51,8 @@ public class RequestManager {
     private interface CallRandomRecipes{
         @GET("random.php")
         Call<RandomRecipeApiResponse> callRandomRecipe(
-                @Query("idMeal") String number
-        );
+                @Query("idMeal") String number,
+                @Query("strCategory")List<String> tags
+                );
     }
 }
