@@ -37,6 +37,20 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:cardElevation="8dp"
+        android:layout_margin="8dp">
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView_home"
+            app:queryHint="Search Food.."
+            app:iconifiedByDefault="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_random"
         android:layout_margin="4dp"
