@@ -42,7 +42,7 @@
                 android:padding="8dp"
                 android:hint="Email"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="9dp"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -54,7 +54,7 @@
                 android:padding="8dp"
                 android:hint="Password"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="9dp"
                 android:textColor="@color/black"/>
 
             <Button
@@ -75,7 +75,7 @@
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
                 android:text="Already an user? Login"
-                android:textColor="@color/black"
+                android:textColor="@color/sea_green"
                 android:textSize="18sp" />
 
         </LinearLayout>
