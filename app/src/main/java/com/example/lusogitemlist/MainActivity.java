@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.lusogitemlist.Adapters.RandomRecipeAdapter;
 import com.example.lusogitemlist.Listeners.RandomRecipeResponseListener;
+import com.example.lusogitemlist.Listeners.RecipeClickListener;
 import com.example.lusogitemlist.Models.RandomRecipeApiResponse;
 
 import java.util.ArrayList;
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView = findViewById(R.id.recycler_random);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
-            randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this, response.meals);
+            randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this, response.recipes, recipeClickListener);
             recyclerView.setAdapter(randomRecipeAdapter);
         }
 
@@ -104,4 +105,10 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
+        @Override
+        public void onRecipeClicked(String id) {
+            Toast.makeText(MainActivity.this, id,Toast.LENGTH_SHORT).show();
+        }
+    };
 }

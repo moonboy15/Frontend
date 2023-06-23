@@ -1,19 +1,36 @@
 <resources>
     <string name="app_name">Lusogitemlist</string>
+    <!--    <string-array name="tags">-->
+    <!--        <item>Beef</item>-->
+    <!--        <item>Chicken</item>-->
+    <!--        <item>Dessert</item>-->
+    <!--        <item>Lamb</item>-->
+    <!--        <item>Miscellaneous</item>-->
+    <!--        <item>Pork</item>-->
+    <!--        <item>Seafood</item>-->
+    <!--        <item>Starter</item>-->
+    <!--        <item>Vegan</item>-->
+    <!--        <item>Vegetarian</item>-->
+    <!--        <item>Breakfast</item>-->
+    <!--        <item>Pasta</item>-->
+    <!--        <item>Side</item>-->
+    <!--        <item>Goat</item>-->
+    <!--    </string-array>-->
+    <string name="apiKey">680b88837baf49a3bd086cc30aeabc40</string>
     <string-array name="tags">
-        <item>Beef</item>
-        <item>Chicken</item>
-        <item>Dessert</item>
-        <item>Lamb</item>
-        <item>Miscellaneous</item>
-        <item>Pork</item>
-        <item>Seafood</item>
-        <item>Starter</item>
-        <item>Vegan</item>
-        <item>Vegetarian</item>
-        <item>Breakfast</item>
-        <item>Pasta</item>
-        <item>Side</item>
-        <item>Goat</item>
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>appetizer</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>sauce</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
     </string-array>
 </resources>

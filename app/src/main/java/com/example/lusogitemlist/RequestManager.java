@@ -19,7 +19,7 @@ public class RequestManager {
 
     Context context;
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://www.themealdb.com/api/json/v1/1/")
+            .baseUrl("https://api.spoonacular.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -29,7 +29,7 @@ public class RequestManager {
 
     public void getRandomRecipes(RandomRecipeResponseListener listener, List<String> tags){
         CallRandomRecipes callRandomRecipes = retrofit.create(CallRandomRecipes.class);
-        Call<RandomRecipeApiResponse> call = callRandomRecipes.callRandomRecipe("1", tags);
+        Call<RandomRecipeApiResponse> call = callRandomRecipes.callRandomRecipe(context.getString(R.string.apiKey),"10", tags);
 
         call.enqueue(new Callback<RandomRecipeApiResponse>() {
             @Override
@@ -49,10 +49,11 @@ public class RequestManager {
     }
 
     private interface CallRandomRecipes{
-        @GET("random.php")
+        @GET("recipes/random")
         Call<RandomRecipeApiResponse> callRandomRecipe(
-                @Query("idMeal") String number,
-                @Query("strCategory")List<String> tags
+                @Query("apiKey") String apiKey,
+                @Query("number") String number,
+                @Query("tags")List<String> tags
                 );
     }
 }
