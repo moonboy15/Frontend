@@ -1,5 +1,6 @@
 package com.example.healthyitemlistview;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -160,10 +161,26 @@ public class MainActivity extends AppCompatActivity {
             foodRecipeTextView.setText(food.getRecipe());
             foodCategoryTextView.setText(food.getCategory());
 
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openFoodDetailsLayout(food);
+                }
+            });
+
             return convertView;
         }
     }
+
+    private void openFoodDetailsLayout(Food food) {
+        Intent intent = new Intent(MainActivity.this, FoodDetailsActivity.class);
+        intent.putExtra("food_name", food.getName());
+        intent.putExtra("food_recipe", food.getRecipe());
+        intent.putExtra("food_category", food.getCategory());
+        startActivity(intent);
+    }
 }
+
 
 
 

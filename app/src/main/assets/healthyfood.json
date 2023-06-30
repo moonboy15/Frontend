@@ -3,7 +3,11 @@
     {
       "food name": "Salad",
       "food recipe": "Mix vegetables and dressing.",
-      "food category": "Salads"
+      "food description": "A healthy easy to make food!",
+      "food category": "Veggies",
+      "food type": "Sides",
+      "food calories": 80,
+      "food benefit": "Heart"
     },
     {
       "food name": "Grilled Chicken",
