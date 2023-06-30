@@ -34,15 +34,15 @@
             android:layout_width="320dp"
             android:layout_height="match_parent"
             android:background="@color/white_smoke"
-            app:queryHint="Search.."
-            app:iconifiedByDefault="false"/>
+            app:iconifiedByDefault="false"
+            app:queryHint="Search.." />
 
     </androidx.appcompat.widget.Toolbar>
 
     <ListView
-        android:layout_margin="8dp"
         android:id="@+id/foodListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="8dp" />
 
 </LinearLayout>
