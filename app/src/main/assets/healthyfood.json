@@ -1,0 +1,19 @@
+{
+  "healthy": [
+    {
+      "food name": "Salad",
+      "food recipe": "Mix vegetables and dressing.",
+      "food category": "Salads"
+    },
+    {
+      "food name": "Grilled Chicken",
+      "food recipe": "Marinate chicken and grill until cooked.",
+      "food category": "Main Course"
+    },
+    {
+      "food name": "Fruit Smoothie",
+      "food recipe": "Blend fruits, yogurt, and ice together.",
+      "food category": "Beverages"
+    }
+  ]
+}
