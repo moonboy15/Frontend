@@ -50,9 +50,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject foodObject = healthyArray.getJSONObject(i);
                     String foodName = foodObject.getString("food name");
                     String foodRecipe = foodObject.getString("food recipe");
+                    String foodDescription = foodObject.getString("food description");
                     String foodCategory = foodObject.getString("food category");
+                    String foodType = foodObject.getString("food type");
+                    int foodCalories = foodObject.getInt("food calories");
+                    String foodBenefit = foodObject.getString("food benefit");
 
-                    Food food = new Food(foodName, foodRecipe, foodCategory);
+                    Food food = new Food(foodName, foodRecipe, foodDescription, foodCategory, foodType, foodCalories,foodBenefit);
                     foodList.add(food);
                 }
 
@@ -118,12 +122,22 @@ public class MainActivity extends AppCompatActivity {
     private class Food {
         private String name;
         private String recipe;
+        private String description;
         private String category;
+        private String type;
+        private int calories;
+        private String benefit;
 
-        public Food(String name, String recipe, String category) {
+
+        public Food(String name, String recipe, String description, String category, String type, int calories, String benefit) {
             this.name = name;
             this.recipe = recipe;
+            this.description = description;
             this.category = category;
+            this.type = type;
+            this.calories = calories;
+            this.benefit = benefit;
+
         }
 
         public String getName() {
@@ -134,9 +148,26 @@ public class MainActivity extends AppCompatActivity {
             return recipe;
         }
 
+        public String getDescription() {
+            return description;
+        }
+
         public String getCategory() {
             return category;
         }
+
+        public String getType() {
+            return type;
+        }
+
+        public int getCalories() {
+            return calories;
+        }
+
+        public String getBenefit() {
+            return benefit;
+        }
+
     }
 
     private class FoodAdapter extends ArrayAdapter<Food> {
@@ -176,7 +207,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, FoodDetailsActivity.class);
         intent.putExtra("food_name", food.getName());
         intent.putExtra("food_recipe", food.getRecipe());
+        intent.putExtra("food_description", food.getDescription());
         intent.putExtra("food_category", food.getCategory());
+        intent.putExtra("food_type", food.getType());
+        intent.putExtra("food_calories", food.getCalories());
+        intent.putExtra("food_benefit", food.getBenefit());
         startActivity(intent);
     }
 }
