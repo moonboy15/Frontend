@@ -7,7 +7,13 @@
       "food category": "Veggies",
       "food type": "Sides",
       "food calories": 80,
-      "food benefit": "Heart"
+      "food benefit": "Heart",
+      "ingredient 1": "Mayo",
+      "ingredient 2": "Tomato",
+      "ingredient 3": "Lettuce",
+      "measurement 1": "2 tbsp",
+      "measurement 2": "1 pc",
+      "measurement 3": "3 pcs"
     },
     {
       "food name": "Grilled Chicken",
@@ -16,7 +22,13 @@
       "food category": "Main Course",
       "food type": "Main Dish",
       "food calories": 300,
-      "food benefit": "Liver"
+      "food benefit": "Liver",
+      "ingredient 1": "Chicken",
+      "ingredient 2": "Canola oil",
+      "ingredient 3": "Onion",
+      "measurement 1": "1 kg",
+      "measurement 2": "5 ml",
+      "measurement 3": "2 pcs"
 
     },
     {
@@ -26,7 +38,13 @@
       "food category": "Beverages",
       "food type": "Drink",
       "food calories": 100,
-      "food benefit": "Lungs"
+      "food benefit": "Lungs",
+      "ingredient 1": "Cream",
+      "ingredient 2": "Milk",
+      "ingredient 3": "Sugar",
+      "measurement 1": "10 ml",
+      "measurement 2": "20 ml",
+      "measurement 3": "3 g"
     }
   ]
 }

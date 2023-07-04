@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         foodListView = findViewById(R.id.foodListView);
 
-        // Load and parse the JSON file
         String json = loadJSONFromAsset();
         if (json != null) {
             try {
@@ -56,7 +55,23 @@ public class MainActivity extends AppCompatActivity {
                     int foodCalories = foodObject.getInt("food calories");
                     String foodBenefit = foodObject.getString("food benefit");
 
-                    Food food = new Food(foodName, foodRecipe, foodDescription, foodCategory, foodType, foodCalories,foodBenefit);
+                    List<String> ingredients = new ArrayList<>();
+                    List<String> measurements = new ArrayList<>();
+
+                    for (int j = 1; j <= 3; j++){
+                        String ingredientKey = "ingredient " + j;
+                        String measurementKey = "measurement " + j;
+
+                        if (foodObject.has(ingredientKey) && foodObject.has(measurementKey)) {
+                            String ingredient = foodObject.getString(ingredientKey);
+                            String measurement = foodObject.getString(measurementKey);
+
+                            ingredients.add(ingredient);
+                            measurements.add(measurement);
+                        }
+                    }
+
+                    Food food = new Food(foodName, foodRecipe, foodDescription, foodCategory, foodType, foodCalories,foodBenefit, ingredients, measurements);
                     foodList.add(food);
                 }
 
@@ -127,9 +142,11 @@ public class MainActivity extends AppCompatActivity {
         private String type;
         private int calories;
         private String benefit;
+        private List<String> ingredients;
+        private List<String> measurements;
 
 
-        public Food(String name, String recipe, String description, String category, String type, int calories, String benefit) {
+        public Food(String name, String recipe, String description, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements) {
             this.name = name;
             this.recipe = recipe;
             this.description = description;
@@ -137,7 +154,16 @@ public class MainActivity extends AppCompatActivity {
             this.type = type;
             this.calories = calories;
             this.benefit = benefit;
+            this.ingredients = ingredients;
+            this.measurements = measurements;
+        }
 
+        public void setIngredients(List<String> ingredients) {
+            this.ingredients = ingredients;
+        }
+
+        public void setMeasurements(List<String> measurements) {
+            this.measurements = measurements;
         }
 
         public String getName() {
@@ -166,6 +192,14 @@ public class MainActivity extends AppCompatActivity {
 
         public String getBenefit() {
             return benefit;
+        }
+
+        public List<String> getIngredients() {
+            return ingredients;
+        }
+
+        public List<String> getMeasurements() {
+            return measurements;
         }
 
     }
@@ -212,6 +246,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("food_type", food.getType());
         intent.putExtra("food_calories", food.getCalories());
         intent.putExtra("food_benefit", food.getBenefit());
+        intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
+        intent.putExtra("food_measurements", new ArrayList<>(food.getMeasurements()));
         startActivity(intent);
     }
 }

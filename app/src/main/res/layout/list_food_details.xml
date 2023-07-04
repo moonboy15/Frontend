@@ -172,15 +172,22 @@
                 android:gravity="center"
                 android:layout_margin="8dp"
                 android:padding="8dp"
-                android:text="Related Food"
+                android:text="Ingredients"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_meal_ingredients"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp" />
+                android:padding="8dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ingredientsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal" />
+
+            </HorizontalScrollView>
 
         </LinearLayout>
 
