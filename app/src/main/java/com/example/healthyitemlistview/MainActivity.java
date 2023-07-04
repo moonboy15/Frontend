@@ -185,12 +185,12 @@ public class MainActivity extends AppCompatActivity {
             Food food = getItem(position);
 
             TextView foodNameTextView = convertView.findViewById(R.id.foodNameTextView);
-            TextView foodRecipeTextView = convertView.findViewById(R.id.foodRecipeTextView);
-            TextView foodCategoryTextView = convertView.findViewById(R.id.foodCategoryTextView);
+            TextView foodTypeTextView = convertView.findViewById(R.id.foodTypeTextView);
+            TextView foodBenefitTextView = convertView.findViewById(R.id.foodBenefitTextView);
 
             foodNameTextView.setText(food.getName());
-            foodRecipeTextView.setText(food.getRecipe());
-            foodCategoryTextView.setText(food.getCategory());
+            foodTypeTextView.setText(food.getType());
+            foodBenefitTextView.setText(food.getBenefit());
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override

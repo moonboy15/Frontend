@@ -14,8 +14,8 @@
       "food recipe": "Marinate chicken and grill until cooked.",
       "food description": "A healthy easy to make food!",
       "food category": "Main Course",
-      "food type": "Dish",
-      "food calories": 80,
+      "food type": "Main Dish",
+      "food calories": 300,
       "food benefit": "Liver"
 
     },
@@ -25,7 +25,7 @@
       "food description": "A healthy easy to make food!",
       "food category": "Beverages",
       "food type": "Drink",
-      "food calories": 80,
+      "food calories": 100,
       "food benefit": "Lungs"
     }
   ]
