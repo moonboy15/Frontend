@@ -39,6 +39,56 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white_smoke">
+
+        <LinearLayout
+            android:id="@+id/foodTypesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Dish"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_drink"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Drink"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Ingredient"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Snack"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_misc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Misc."
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
     <ListView
         android:id="@+id/foodListView"
         android:layout_width="match_parent"

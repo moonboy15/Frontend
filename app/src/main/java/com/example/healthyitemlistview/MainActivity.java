@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,7 +23,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,6 +102,40 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        Button buttonDish = findViewById(R.id.button_dish);
+        Button buttonDrink = findViewById(R.id.button_drink);
+        Button buttonIngredient = findViewById(R.id.button_ingredient);
+        Button buttonSnack = findViewById(R.id.button_snack);
+        Button buttonMisc = findViewById(R.id.button_misc);
+
+        buttonDish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterFoodByType("Dish");
+            }
+        });
+
+        buttonIngredient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterFoodByType("Ingredient");
+            }
+        });
+
+        buttonSnack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterFoodByType("Snack");
+            }
+        });
+
+        buttonMisc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterFoodByType("Misc.");
+            }
+        });
     }
 
     private String loadJSONFromAsset() {
@@ -128,6 +167,18 @@ public class MainActivity extends AppCompatActivity {
                 if (food.getName().toLowerCase().contains(query)) {
                     filteredFoodList.add(food);
                 }
+            }
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
+    private void filterFoodByType(String foodType){
+        filteredFoodList.clear();
+
+        for(Food food : foodList){
+            if(food.getType().equalsIgnoreCase(foodType)){
+                filteredFoodList.add(food);
             }
         }
 
@@ -251,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
 
 
 

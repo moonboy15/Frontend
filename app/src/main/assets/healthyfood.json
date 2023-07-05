@@ -5,7 +5,7 @@
       "food recipe": "Mix vegetables and dressing.",
       "food description": "A healthy easy to make food!",
       "food category": "Veggies",
-      "food type": "Sides",
+      "food type": "Dish",
       "food calories": 80,
       "food benefit": "Heart",
       "ingredient 1": "Mayo",
@@ -20,7 +20,7 @@
       "food recipe": "Marinate chicken and grill until cooked.",
       "food description": "A healthy easy to make food!",
       "food category": "Main Course",
-      "food type": "Main Dish",
+      "food type": "Dish",
       "food calories": 300,
       "food benefit": "Liver",
       "ingredient 1": "Chicken",
@@ -45,6 +45,21 @@
       "measurement 1": "10 ml",
       "measurement 2": "20 ml",
       "measurement 3": "3 g"
+    },
+    {
+      "food name": "Potato",
+      "food recipe": "",
+      "food description": "Sweet potato",
+      "food category": "Vegetable",
+      "food type": "Ingredient",
+      "food calories": 10,
+      "food benefit": "Lungs",
+      "ingredient 1": "",
+      "ingredient 2": "",
+      "ingredient 3": "",
+      "measurement 1": "",
+      "measurement 2": "",
+      "measurement 3": ""
     }
   ]
 }
