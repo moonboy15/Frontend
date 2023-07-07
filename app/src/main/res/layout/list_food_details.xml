@@ -158,14 +158,33 @@
                 android:padding="8dp"
                 android:textSize="14sp" />
 
+
             <Button
                 android:id="@+id/button_see_recipe"
-                android:layout_gravity="center"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:backgroundTint="@color/forest_green"
-                android:text="See Recipe"/>
+                android:text="See Recipe" />
 
+            <LinearLayout
+                android:id="@+id/recipeView_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/recipe_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
