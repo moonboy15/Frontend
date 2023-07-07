@@ -3,6 +3,7 @@
     {
       "food name": "Salad",
       "food recipe": "Mix vegetables and dressing.",
+      "food image": "nilagang_baboy",
       "food description": "A healthy easy to make food!",
       "food category": "Veggies",
       "food type": "Dish",
@@ -18,6 +19,7 @@
     {
       "food name": "Grilled Chicken",
       "food recipe": "Marinate chicken and grill until cooked.",
+      "food image": "grilled_chicken",
       "food description": "A healthy easy to make food!",
       "food category": "Main Course",
       "food type": "Dish",
@@ -34,6 +36,7 @@
     {
       "food name": "Fruit Smoothie",
       "food recipe": "Blend fruits, yogurt, and ice together.",
+      "food image": "nilagang_baboy",
       "food description": "A healthy easy to make food!",
       "food category": "Beverages",
       "food type": "Drink",
@@ -49,6 +52,7 @@
     {
       "food name": "Potato",
       "food recipe": "",
+      "food image": "nilagang_baboy",
       "food description": "Sweet potato",
       "food category": "Vegetable",
       "food type": "Ingredient",

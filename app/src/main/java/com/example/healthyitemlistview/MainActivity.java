@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject foodObject = healthyArray.getJSONObject(i);
                     String foodName = foodObject.getString("food name");
                     String foodRecipe = foodObject.getString("food recipe");
+                    String foodImage = foodObject.getString("food image");
                     String foodDescription = foodObject.getString("food description");
                     String foodCategory = foodObject.getString("food category");
                     String foodType = foodObject.getString("food type");
@@ -76,8 +78,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    Food food = new Food(foodName, foodRecipe, foodDescription, foodCategory, foodType, foodCalories,foodBenefit, ingredients, measurements);
+                    Food food = new Food(foodName, foodRecipe, foodDescription, foodImage, foodCategory, foodType, foodCalories,foodBenefit, ingredients, measurements);
                     foodList.add(food);
+                    food.setImage(foodImage);
                 }
 
                 filteredFoodList = new ArrayList<>(foodList);
@@ -114,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 filterFoodByType("Dish");
             }
+        });
+
+        buttonDrink.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {filterFoodByType("Drink");}
         });
 
         buttonIngredient.setOnClickListener(new View.OnClickListener() {
@@ -195,9 +203,10 @@ public class MainActivity extends AppCompatActivity {
         private String benefit;
         private List<String> ingredients;
         private List<String> measurements;
+        private String image;
 
 
-        public Food(String name, String recipe, String description, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements) {
+        public Food(String name, String recipe, String description, String image, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements) {
             this.name = name;
             this.recipe = recipe;
             this.description = description;
@@ -207,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
             this.benefit = benefit;
             this.ingredients = ingredients;
             this.measurements = measurements;
+            this.image = image;
         }
 
         public void setIngredients(List<String> ingredients) {
@@ -253,6 +263,14 @@ public class MainActivity extends AppCompatActivity {
             return measurements;
         }
 
+        public void setImage(String image) {
+            this.image = image;
+        }
+
+        public String getImage() {
+            return image;
+        }
+
     }
 
     private class FoodAdapter extends ArrayAdapter<Food> {
@@ -272,6 +290,18 @@ public class MainActivity extends AppCompatActivity {
             TextView foodNameTextView = convertView.findViewById(R.id.foodNameTextView);
             TextView foodTypeTextView = convertView.findViewById(R.id.foodTypeTextView);
             TextView foodBenefitTextView = convertView.findViewById(R.id.foodBenefitTextView);
+            ImageView foodImageView = convertView.findViewById(R.id.imageView_food);
+
+            String resourceName = food.getImage();
+            int resourceId = getResources().getIdentifier(resourceName, "drawable", getPackageName());
+
+            if (resourceId != 0) {
+                // Set the image resource
+                foodImageView.setImageResource(resourceId);
+            } else {
+                // Set a default image resource or handle the case when the image resource is not found
+                foodImageView.setImageResource(R.drawable.no_image);
+            }
 
             foodNameTextView.setText(food.getName());
             foodTypeTextView.setText(food.getType());
