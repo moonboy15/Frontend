@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,6 +83,24 @@ public class MainActivity extends AppCompatActivity {
                     foodList.add(food);
                     food.setImage(foodImage);
                 }
+                Spinner spinnerTags = findViewById(R.id.spinner_tags);
+                ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.food_benefits, android.R.layout.simple_spinner_item);
+                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerTags.setAdapter(spinnerAdapter);
+                spinnerTags.setSelection(spinnerAdapter.getPosition("All"));
+
+                spinnerTags.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedBenefit = parent.getItemAtPosition(position).toString();
+                        filterFoodByBenefit(selectedBenefit);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
 
                 filteredFoodList = new ArrayList<>(foodList);
 
@@ -318,10 +337,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void filterFoodByBenefit(String benefit) {
+        filteredFoodList.clear();
+
+        if (benefit.equalsIgnoreCase("All")) {
+            filteredFoodList.addAll(foodList);
+        } else {
+            for (Food food : foodList) {
+                if (food.getBenefit().equalsIgnoreCase(benefit)) {
+                    filteredFoodList.add(food);
+                }
+            }
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
+
     private void openFoodDetailsLayout(Food food) {
         Intent intent = new Intent(MainActivity.this, FoodDetailsActivity.class);
         intent.putExtra("food_name", food.getName());
         intent.putExtra("food_recipe", food.getRecipe());
+        intent.putExtra("food_image", food.getImage());
         intent.putExtra("food_description", food.getDescription());
         intent.putExtra("food_category", food.getCategory());
         intent.putExtra("food_type", food.getType());

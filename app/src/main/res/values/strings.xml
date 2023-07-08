@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">healthyitemlistview</string>
+    <string-array name="food_benefits">
+        <item>All</item>
+        <item>Heart</item>
+        <item>Liver</item>
+        <item>Lungs</item>
+    </string-array>
 </resources>

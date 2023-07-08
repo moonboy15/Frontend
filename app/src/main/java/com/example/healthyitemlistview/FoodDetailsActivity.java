@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.graphics.drawable.Drawable;
+import androidx.core.content.ContextCompat;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,6 +44,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String foodName = intent.getStringExtra("food_name");
         String foodRecipe = intent.getStringExtra("food_recipe");
+        String foodImage = intent.getStringExtra("food_image");
         String foodCategory = intent.getStringExtra("food_category");
         String foodType = intent.getStringExtra("food_type");
         int foodCalories = intent.getIntExtra("food_calories", 0);
@@ -48,6 +52,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
         String foodDescription = intent.getStringExtra("food_description");
         ArrayList<String> ingredientList = intent.getStringArrayListExtra("food_ingredients");
         ArrayList<String> measurementList = intent.getStringArrayListExtra("food_measurements");
+
 
         TextView foodNameTextView = findViewById(R.id.textView_food_name);
         TextView foodCategoryTextView = findViewById(R.id.textView_food_category);
@@ -62,6 +67,21 @@ public class FoodDetailsActivity extends AppCompatActivity {
         foodCaloriesTextView.setText(String.valueOf(foodCalories));
         foodBenefitTextView.setText(foodBenefit);
         foodDescriptionTextView.setText(foodDescription);
+
+        ImageView foodImageView = findViewById(R.id.foodDetail_imageView);
+        if (foodImage !=null) {
+            int resourceId = getResources().getIdentifier(foodImage, "drawable", getPackageName());
+            if (resourceId != 0) {
+                Drawable foodImageDrawable = ContextCompat.getDrawable(this, resourceId);
+                foodImageView.setImageDrawable(foodImageDrawable);
+            }
+            else{
+                foodImageView.setImageResource(R.drawable.no_image);
+            }
+        }
+        else {
+            foodImageView.setImageResource(R.drawable.no_image);
+        }
 
         ingredientsRecyclerView = findViewById(R.id.ingredientsRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);

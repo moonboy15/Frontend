@@ -37,6 +37,15 @@
             app:iconifiedByDefault="false"
             app:queryHint="Search.." />
 
+        <Spinner
+            android:background="@drawable/ic_filters"
+            android:id="@+id/spinner_tags"
+            android:layout_marginStart="30dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
     </androidx.appcompat.widget.Toolbar>
 
     <HorizontalScrollView

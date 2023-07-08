@@ -27,10 +27,10 @@
                 android:id="@+id/textView_food_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:padding="8dp"
-
-                android:textSize="20sp"
+                android:padding="4dp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -60,13 +60,13 @@
                             android:layout_width="50sp"
                             android:layout_height="50sp"
                             android:layout_margin="5dp"
-                            android:src="@drawable/label_image_placeholder" />
+                            android:src="@drawable/ic_main_ingredient" />
 
                         <ImageView
                             android:layout_width="50sp"
                             android:layout_height="50sp"
                             android:layout_margin="5dp"
-                            android:src="@drawable/label_image_placeholder" />
+                            android:src="@drawable/ic_serving" />
 
                     </LinearLayout>
                     <LinearLayout
@@ -110,13 +110,13 @@
                             android:layout_width="50sp"
                             android:layout_height="50sp"
                             android:layout_margin="5dp"
-                            android:src="@drawable/label_image_placeholder" />
+                            android:src="@drawable/ic_food_benefit" />
 
                         <ImageView
                             android:layout_width="50sp"
                             android:layout_height="50sp"
                             android:layout_margin="5dp"
-                            android:src="@drawable/label_image_placeholder" />
+                            android:src="@drawable/ic_calories2" />
 
                     </LinearLayout>
                     <LinearLayout
