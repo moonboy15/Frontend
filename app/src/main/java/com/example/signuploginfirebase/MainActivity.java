@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
 
         logout = findViewById(R.id.logout);
         userName = findViewById(R.id.userName);
+
+        Button buttonHealthyFood = findViewById(R.id.button_to_categories);
+        buttonHealthyFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 //        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 //        gClient = GoogleSignIn.getClient(this, gOptions);

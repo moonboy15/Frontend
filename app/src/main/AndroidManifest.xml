@@ -41,6 +41,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".CategoriesActivity"/>
+        <activity android:name=".HealthyFoodActivity"/>
+        <activity android:name=".FoodDetailsActivity"/>
+        <activity android:name=".BMICalculatorActivity"/>
     </application>
 
 </manifest>

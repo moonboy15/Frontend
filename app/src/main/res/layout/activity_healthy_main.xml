@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lime_green">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:text="Healthy Food Category"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/white_smoke"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lime_green">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchEditText"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:background="@color/white_smoke"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search.." />
+
+        <Spinner
+            android:background="@drawable/ic_filters"
+            android:id="@+id/spinner_tags"
+            android:layout_marginStart="30dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white_smoke">
+
+        <LinearLayout
+            android:id="@+id/foodTypesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Dish"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_drink"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Drink"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Ingredient"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Snack"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/button_misc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
+                android:text="Misc."
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <ListView
+        android:id="@+id/foodListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp" />
+
+</LinearLayout>

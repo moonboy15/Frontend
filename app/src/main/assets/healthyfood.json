@@ -1,0 +1,69 @@
+{
+  "healthy": [
+    {
+      "food name": "Salad",
+      "food recipe": "Mix vegetables and dressing.",
+      "food image": "nilagang_baboy",
+      "food description": "A healthy easy to make food!",
+      "food category": "Veggies",
+      "food type": "Dish",
+      "food calories": 80,
+      "food benefit": "Heart",
+      "ingredient 1": "Mayo",
+      "ingredient 2": "Tomato",
+      "ingredient 3": "Lettuce",
+      "measurement 1": "2 tbsp",
+      "measurement 2": "1 pc",
+      "measurement 3": "3 pcs"
+    },
+    {
+      "food name": "Grilled Chicken",
+      "food recipe": "Marinate chicken and grill until cooked.",
+      "food image": "grilled_chicken",
+      "food description": "A healthy easy to make food!",
+      "food category": "Chicken",
+      "food type": "Dish",
+      "food calories": 300,
+      "food benefit": "Liver",
+      "ingredient 1": "Chicken",
+      "ingredient 2": "Canola oil",
+      "ingredient 3": "Onion",
+      "measurement 1": "1 kg",
+      "measurement 2": "5 ml",
+      "measurement 3": "2 pcs"
+
+    },
+    {
+      "food name": "Fruit Smoothie",
+      "food recipe": "Blend fruits, yogurt, and ice together.",
+      "food image": "nilagang_baboy",
+      "food description": "A healthy easy to make food!",
+      "food category": "Fruit",
+      "food type": "Drink",
+      "food calories": 100,
+      "food benefit": "Lungs",
+      "ingredient 1": "Cream",
+      "ingredient 2": "Milk",
+      "ingredient 3": "Sugar",
+      "measurement 1": "10 ml",
+      "measurement 2": "20 ml",
+      "measurement 3": "3 g"
+    },
+    {
+      "food name": "Potato",
+      "food recipe": "",
+      "food image": "nilagang_baboy",
+      "food description": "Sweet potato",
+      "food category": "Vegetable",
+      "food type": "Ingredient",
+      "food calories": 10,
+      "food benefit": "Lungs",
+      "ingredient 1": "",
+      "ingredient 2": "",
+      "ingredient 3": "",
+      "measurement 1": "",
+      "measurement 2": "",
+      "measurement 3": ""
+    }
+  ]
+}
