@@ -1,0 +1,53 @@
+{
+  "unhealthy": [
+    {
+      "food name": "Betamax",
+      "food image": "nilagang_baboy",
+      "food description": "An Unhealthy food for our body!",
+      "food category": "Chicken",
+      "food type": "Misc.",
+      "food calories": 80,
+      "food disbenefit": "Kidney",
+      "food alternative": "",
+      "ingredient 1": "Chicken Blood",
+      "ingredient 2": "Vinegar"
+    },
+    {
+      "food name": "Chicharon Bulaklak",
+      "food image": "grilled_chicken",
+      "food description": "An Unhealthy food for our body!",
+      "food category": "Pork",
+      "food type": "Dish",
+      "food calories": 180,
+      "food disbenefit": "Heart",
+      "food alternative": "",
+      "ingredient 1": "Chicharon",
+      "ingredient 2": "Onion"
+
+    },
+    {
+      "food name": "Milk tea/Boba tea",
+      "food image": "grilled_chicken",
+      "food description": "An Unhealthy drink for our body!",
+      "food category": "Milk",
+      "food type": "Drink",
+      "food calories": 60,
+      "food disbenefit": "Liver",
+      "food alternative": "Green Tea",
+      "ingredient 1": "Milk",
+      "ingredient 2": "Boba"
+    },
+    {
+      "food name": "Chicharon",
+      "food image": "nilagang_baka",
+      "food description": "An Unhealthy ingredient for our body!",
+      "food category": "Pork",
+      "food type": "Ingredient",
+      "food calories": 60,
+      "food disbenefit": "Heart",
+      "food alternative": "",
+      "ingredient 1": "",
+      "ingredient 2": ""
+    }
+  ]
+}

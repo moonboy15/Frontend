@@ -29,9 +29,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class HealthyFoodActivity extends AppCompatActivity {
+public class UnhealthyFoodActivity extends AppCompatActivity {
 
-    private static final String TAG = HealthyFoodActivity.class.getSimpleName();
+    private static final String TAG = UnhealthyFoodActivity.class.getSimpleName();
 
     private ListView foodListView;
     private List<Food> foodList;
@@ -41,50 +41,47 @@ public class HealthyFoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_healthy_main);
+        setContentView(R.layout.activity_unhealthy_main);
 
-        foodListView = findViewById(R.id.foodListView);
+        foodListView = findViewById(R.id.foodListView_unhealthy);
 
         String json = loadJSONFromAsset();
         if (json != null) {
             try {
                 JSONObject jsonObject = new JSONObject(json);
-                JSONArray healthyArray = jsonObject.getJSONArray("healthy");
+                JSONArray healthyArray = jsonObject.getJSONArray("unhealthy");
 
                 foodList = new ArrayList<>();
                 for (int i = 0; i < healthyArray.length(); i++) {
                     JSONObject foodObject = healthyArray.getJSONObject(i);
                     String foodName = foodObject.getString("food name");
-                    String foodRecipe = foodObject.getString("food recipe");
                     String foodImage = foodObject.getString("food image");
                     String foodDescription = foodObject.getString("food description");
                     String foodCategory = foodObject.getString("food category");
                     String foodType = foodObject.getString("food type");
+                    String foodDisbenefit = foodObject.getString("food disbenefit");
+                    String foodAlternative = foodObject.getString("food alternative");
                     int foodCalories = foodObject.getInt("food calories");
-                    String foodBenefit = foodObject.getString("food benefit");
+
 
                     List<String> ingredients = new ArrayList<>();
-                    List<String> measurements = new ArrayList<>();
 
                     for (int j = 1; j <= 3; j++){
                         String ingredientKey = "ingredient " + j;
-                        String measurementKey = "measurement " + j;
 
-                        if (foodObject.has(ingredientKey) && foodObject.has(measurementKey)) {
+                        if (foodObject.has(ingredientKey)) {
                             String ingredient = foodObject.getString(ingredientKey);
-                            String measurement = foodObject.getString(measurementKey);
 
                             ingredients.add(ingredient);
-                            measurements.add(measurement);
                         }
                     }
 
-                    Food food = new Food(foodName, foodRecipe, foodDescription, foodImage, foodCategory, foodType, foodCalories,foodBenefit, ingredients, measurements);
+                    Food food = new Food(foodName, foodDescription, foodImage, foodCategory, foodType, foodCalories, foodDisbenefit,foodAlternative, ingredients);
                     foodList.add(food);
                     food.setImage(foodImage);
                 }
-                Spinner spinnerTags = findViewById(R.id.spinner_tags);
-                ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.food_benefits, android.R.layout.simple_spinner_item);
+                Spinner spinnerTags = findViewById(R.id.spinner_tags_unhealthy);
+                ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.food_disbenefits, android.R.layout.simple_spinner_item);
                 spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerTags.setAdapter(spinnerAdapter);
                 spinnerTags.setSelection(spinnerAdapter.getPosition("All"));
@@ -111,7 +108,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
             }
         }
 
-        androidx.appcompat.widget.SearchView searchView = findViewById(R.id.searchEditText);
+        androidx.appcompat.widget.SearchView searchView = findViewById(R.id.searchEditText_unhealthy);
         searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -125,11 +122,11 @@ public class HealthyFoodActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonDish = findViewById(R.id.button_dish);
-        Button buttonDrink = findViewById(R.id.button_drink);
-        Button buttonIngredient = findViewById(R.id.button_ingredient);
-        Button buttonSnack = findViewById(R.id.button_snack);
-        Button buttonMisc = findViewById(R.id.button_misc);
+        Button buttonDish = findViewById(R.id.button_dish_unhealthy);
+        Button buttonDrink = findViewById(R.id.button_drink_unhealthy);
+        Button buttonIngredient = findViewById(R.id.button_ingredient_unhealthy);
+        Button buttonSnack = findViewById(R.id.button_snack_unhealthy);
+        Button buttonMisc = findViewById(R.id.button_misc_unhealthy);
 
         buttonDish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,7 +166,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
         String json = null;
         try {
             AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("healthyfood.json");
+            InputStream inputStream = assetManager.open("unhealthyfood.json");
 
             int size = inputStream.available();
             byte[] buffer = new byte[size];
@@ -214,27 +211,25 @@ public class HealthyFoodActivity extends AppCompatActivity {
 
     private class Food {
         private String name;
-        private String recipe;
         private String description;
         private String category;
         private String type;
         private int calories;
-        private String benefit;
+        private String disbenefit;
+        private String alternative;
         private List<String> ingredients;
-        private List<String> measurements;
         private String image;
 
 
-        public Food(String name, String recipe, String description, String image, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements) {
+        public Food(String name, String description, String image, String category, String type, int calories, String disbenefit, String alternative, List<String> ingredients) {
             this.name = name;
-            this.recipe = recipe;
             this.description = description;
             this.category = category;
             this.type = type;
             this.calories = calories;
-            this.benefit = benefit;
+            this.disbenefit = disbenefit;
             this.ingredients = ingredients;
-            this.measurements = measurements;
+            this.alternative = alternative;
             this.image = image;
         }
 
@@ -242,50 +237,31 @@ public class HealthyFoodActivity extends AppCompatActivity {
             this.ingredients = ingredients;
         }
 
-        public void setMeasurements(List<String> measurements) {
-            this.measurements = measurements;
-        }
-
         public String getName() {
             return name;
         }
-
-        public String getRecipe() {
-            return recipe;
-        }
-
         public String getDescription() {
             return description;
         }
-
         public String getCategory() {
             return category;
         }
-
         public String getType() {
             return type;
         }
-
         public int getCalories() {
             return calories;
         }
-
-        public String getBenefit() {
-            return benefit;
+        public String getAlternative(){return alternative;}
+        public String getDisbenefit() {
+            return disbenefit;
         }
-
         public List<String> getIngredients() {
             return ingredients;
         }
-
-        public List<String> getMeasurements() {
-            return measurements;
-        }
-
         public void setImage(String image) {
             this.image = image;
         }
-
         public String getImage() {
             return image;
         }
@@ -295,20 +271,20 @@ public class HealthyFoodActivity extends AppCompatActivity {
     private class FoodAdapter extends ArrayAdapter<Food> {
 
         public FoodAdapter(List<Food> foodList) {
-            super(HealthyFoodActivity.this, 0, foodList);
+            super(UnhealthyFoodActivity.this, 0, foodList);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = getLayoutInflater().inflate(R.layout.list_item_food, parent, false);
+                convertView = getLayoutInflater().inflate(R.layout.list_item_food_unhealthy, parent, false);
             }
 
             Food food = getItem(position);
 
             TextView foodNameTextView = convertView.findViewById(R.id.foodNameTextView);
             TextView foodTypeTextView = convertView.findViewById(R.id.foodTypeTextView);
-            TextView foodBenefitTextView = convertView.findViewById(R.id.foodBenefitTextView);
+            TextView foodDisbenefitTextView = convertView.findViewById(R.id.foodDisbenefitTextView);
             ImageView foodImageView = convertView.findViewById(R.id.imageView_food);
 
             String resourceName = food.getImage();
@@ -324,7 +300,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
 
             foodNameTextView.setText(food.getName());
             foodTypeTextView.setText(food.getType());
-            foodBenefitTextView.setText(food.getBenefit());
+            foodDisbenefitTextView.setText(food.getDisbenefit());
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -337,14 +313,14 @@ public class HealthyFoodActivity extends AppCompatActivity {
         }
     }
 
-    private void filterFoodByBenefit(String benefit) {
+    private void filterFoodByBenefit(String disbenefit) {
         filteredFoodList.clear();
 
-        if (benefit.equalsIgnoreCase("All")) {
+        if (disbenefit.equalsIgnoreCase("All")) {
             filteredFoodList.addAll(foodList);
         } else {
             for (Food food : foodList) {
-                if (food.getBenefit().equalsIgnoreCase(benefit)) {
+                if (food.getDisbenefit().equalsIgnoreCase(disbenefit)) {
                     filteredFoodList.add(food);
                 }
             }
@@ -353,19 +329,17 @@ public class HealthyFoodActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-
     private void openFoodDetailsLayout(Food food) {
-        Intent intent = new Intent(HealthyFoodActivity.this, FoodDetailsActivity.class);
+        Intent intent = new Intent(UnhealthyFoodActivity.this, UnhealthyFoodDetailsActivity.class);
         intent.putExtra("food_name", food.getName());
-        intent.putExtra("food_recipe", food.getRecipe());
+        intent.putExtra("food_alternative", food.getAlternative());
         intent.putExtra("food_image", food.getImage());
         intent.putExtra("food_description", food.getDescription());
         intent.putExtra("food_category", food.getCategory());
         intent.putExtra("food_type", food.getType());
         intent.putExtra("food_calories", food.getCalories());
-        intent.putExtra("food_benefit", food.getBenefit());
+        intent.putExtra("food_disbenefit", food.getDisbenefit());
         intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
-        intent.putExtra("food_measurements", new ArrayList<>(food.getMeasurements()));
         startActivity(intent);
     }
 }

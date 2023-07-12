@@ -31,5 +31,14 @@ public class CategoriesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        RelativeLayout buttonUnhealthyFood = findViewById(R.id.button_unhealthyFood);
+        buttonUnhealthyFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CategoriesActivity.this, UnhealthyFoodActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -17,4 +17,11 @@
         <item>Lungs</item>
     </string-array>
 
+    <string-array name="food_disbenefits">
+        <item>All</item>
+        <item>Heart</item>
+        <item>Liver</item>
+        <item>Lungs</item>
+    </string-array>
+
 </resources>

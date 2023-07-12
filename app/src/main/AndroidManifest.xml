@@ -45,6 +45,8 @@
         <activity android:name=".HealthyFoodActivity"/>
         <activity android:name=".FoodDetailsActivity"/>
         <activity android:name=".BMICalculatorActivity"/>
+        <activity android:name=".UnhealthyFoodActivity"/>
+        <activity android:name=".UnhealthyFoodDetailsActivity"/>
     </application>
 
 </manifest>
