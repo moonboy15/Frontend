@@ -1,5 +1,6 @@
 package com.example.signuploginfirebase;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.graphics.drawable.Drawable;
+import android.widget.Toast;
+
 import androidx.core.content.ContextCompat;
 
 
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FoodDetailsActivity extends AppCompatActivity {
 
@@ -24,11 +28,14 @@ public class FoodDetailsActivity extends AppCompatActivity {
     private LinearLayout recipeLayout;
     private Button seeRecipeButton;
     private TextView recipe_textView;
+    List<Food> foodList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_food_details);
+
+        foodList = getIntent().getParcelableArrayListExtra("food_list");
 
         recipeLayout = findViewById(R.id.recipeView_layout);
         seeRecipeButton = findViewById(R.id.button_see_recipe);
@@ -88,7 +95,12 @@ public class FoodDetailsActivity extends AppCompatActivity {
         ingredientsRecyclerView.setLayoutManager(layoutManager);
         ingredientsRecyclerView.setHasFixedSize(true);
 
-        IngredientsAdapter adapter = new IngredientsAdapter(ingredientList, measurementList);
+        IngredientsAdapter adapter = new IngredientsAdapter(ingredientList, measurementList, new IngredientsAdapter.OnIngredientClickListener() {
+            @Override
+            public void onIngredientClick(String ingredient) {
+                openFoodDetailsForIngredient(ingredient);
+            }
+        });
         ingredientsRecyclerView.setAdapter(adapter);
 
         recipe_textView.setText(foodRecipe);
@@ -100,4 +112,36 @@ public class FoodDetailsActivity extends AppCompatActivity {
             recipeLayout.setVisibility(View.VISIBLE);
         }
     }
+
+    private void openFoodDetailsForIngredient(String ingredient){
+        Food clickedFood = null;
+        for (Food food: foodList){
+            if(food.getName().toLowerCase().equals(ingredient.toLowerCase())){
+                clickedFood = food;
+                break;
+            }
+        }
+
+        if (clickedFood != null){
+            openFoodDetailsLayout(clickedFood);
+        }else {
+            Toast.makeText(this, "No food found for ingredient: "+  ingredient, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openFoodDetailsLayout(Food food) {
+        Intent intent = new Intent(FoodDetailsActivity.this, FoodDetailsActivity.class);
+        intent.putExtra("food_name", food.getName());
+        intent.putExtra("food_recipe", food.getRecipe());
+        intent.putExtra("food_image", food.getImage());
+        intent.putExtra("food_description", food.getDescription());
+        intent.putExtra("food_category", food.getCategory());
+        intent.putExtra("food_type", food.getType());
+        intent.putExtra("food_calories", food.getCalories());
+        intent.putExtra("food_benefit", food.getBenefit());
+        intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
+        intent.putExtra("food_measurements", new ArrayList<>(food.getMeasurements()));
+        startActivity(intent);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.signuploginfirebase;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -10,11 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -25,9 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class HealthyFoodActivity extends AppCompatActivity {
 
@@ -66,7 +65,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
                     List<String> ingredients = new ArrayList<>();
                     List<String> measurements = new ArrayList<>();
 
-                    for (int j = 1; j <= 3; j++){
+                    for (int j = 1; j <= 20; j++){
                         String ingredientKey = "ingredient " + j;
                         String measurementKey = "measurement " + j;
 
@@ -106,6 +105,14 @@ public class HealthyFoodActivity extends AppCompatActivity {
 
                 adapter = new FoodAdapter(filteredFoodList);
                 foodListView.setAdapter(adapter);
+
+                foodListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Food clickedFood = filteredFoodList.get(position);
+                        openFoodDetailsLayout(clickedFood);
+                    }
+                });
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -212,84 +219,9 @@ public class HealthyFoodActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private class Food {
-        private String name;
-        private String recipe;
-        private String description;
-        private String category;
-        private String type;
-        private int calories;
-        private String benefit;
-        private List<String> ingredients;
-        private List<String> measurements;
-        private String image;
 
-
-        public Food(String name, String recipe, String description, String image, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements) {
-            this.name = name;
-            this.recipe = recipe;
-            this.description = description;
-            this.category = category;
-            this.type = type;
-            this.calories = calories;
-            this.benefit = benefit;
-            this.ingredients = ingredients;
-            this.measurements = measurements;
-            this.image = image;
-        }
-
-        public void setIngredients(List<String> ingredients) {
-            this.ingredients = ingredients;
-        }
-
-        public void setMeasurements(List<String> measurements) {
-            this.measurements = measurements;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getRecipe() {
-            return recipe;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public String getCategory() {
-            return category;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public int getCalories() {
-            return calories;
-        }
-
-        public String getBenefit() {
-            return benefit;
-        }
-
-        public List<String> getIngredients() {
-            return ingredients;
-        }
-
-        public List<String> getMeasurements() {
-            return measurements;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
+    public interface OnItemClickListener {
+        void onItemClick(Food food);
     }
 
     private class FoodAdapter extends ArrayAdapter<Food> {
@@ -356,6 +288,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
 
     private void openFoodDetailsLayout(Food food) {
         Intent intent = new Intent(HealthyFoodActivity.this, FoodDetailsActivity.class);
+        intent.putExtra("food_list", new ArrayList<>(foodList));
         intent.putExtra("food_name", food.getName());
         intent.putExtra("food_recipe", food.getRecipe());
         intent.putExtra("food_image", food.getImage());
@@ -368,4 +301,5 @@ public class HealthyFoodActivity extends AppCompatActivity {
         intent.putExtra("food_measurements", new ArrayList<>(food.getMeasurements()));
         startActivity(intent);
     }
+
 }

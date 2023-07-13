@@ -64,6 +64,54 @@
       "measurement 1": "",
       "measurement 2": "",
       "measurement 3": ""
+    },
+    {
+      "food name": "Mayo",
+      "food recipe": "",
+      "food image": "nilagang_baboy",
+      "food description": "Sweet potato",
+      "food category": "Vegetable",
+      "food type": "Ingredient",
+      "food calories": 10,
+      "food benefit": "Lungs",
+      "ingredient 1": "",
+      "ingredient 2": "",
+      "ingredient 3": "",
+      "measurement 1": "",
+      "measurement 2": "",
+      "measurement 3": ""
+    },
+    {
+      "food name": "Tomato",
+      "food recipe": "",
+      "food image": "nilagang_baboy",
+      "food description": "Sweet potato",
+      "food category": "Vegetable",
+      "food type": "Ingredient",
+      "food calories": 10,
+      "food benefit": "Lungs",
+      "ingredient 1": "",
+      "ingredient 2": "",
+      "ingredient 3": "",
+      "measurement 1": "",
+      "measurement 2": "",
+      "measurement 3": ""
+    },
+    {
+      "food name": "Lettuce",
+      "food recipe": "",
+      "food image": "nilagang_baboy",
+      "food description": "Sweet potato",
+      "food category": "Vegetable",
+      "food type": "Ingredient",
+      "food calories": 10,
+      "food benefit": "Lungs",
+      "ingredient 1": "",
+      "ingredient 2": "",
+      "ingredient 3": "",
+      "measurement 1": "",
+      "measurement 2": "",
+      "measurement 3": ""
     }
   ]
 }
