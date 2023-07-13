@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.graphics.drawable.Drawable;
+import android.widget.Toast;
+
 import androidx.core.content.ContextCompat;
 
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
 
@@ -26,10 +29,14 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
     private Button seeAlternativeButton;
     private TextView alternative_textView;
 
+    List<FoodUnhealthy> foodList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_food_details_unhealthy);
+
+        foodList = getIntent().getParcelableArrayListExtra("food_list");
 
         alternativeLayout = findViewById(R.id.alternativeView_layout);
         seeAlternativeButton = findViewById(R.id.button_see_alternative);
@@ -90,7 +97,12 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         unhealthyIngredientsRecyclerView.setLayoutManager(layoutManager);
         unhealthyIngredientsRecyclerView.setHasFixedSize(true);
 
-        UnhealthyIngredientsAdapter adapter = new UnhealthyIngredientsAdapter(ingredientList);
+        UnhealthyIngredientsAdapter adapter = new UnhealthyIngredientsAdapter(ingredientList, new IngredientsAdapter.OnIngredientClickListener() {
+            @Override
+            public void onIngredientClick(String ingredient) {
+                openFoodDetailsForIngredient(ingredient);
+            }
+        });
         unhealthyIngredientsRecyclerView.setAdapter(adapter);
         alternative_textView.setText(foodAlternative);
     }
@@ -100,5 +112,36 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         } else {
             alternativeLayout.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void openFoodDetailsForIngredient(String ingredient){
+        FoodUnhealthy clickedFood = null;
+        for (FoodUnhealthy food: foodList){
+            if(food.getName().toLowerCase().equals(ingredient.toLowerCase())){
+                clickedFood = food;
+                break;
+            }
+        }
+
+        if (clickedFood != null){
+            openFoodDetailsLayout(clickedFood);
+        }else {
+            Toast.makeText(this, "No food found for ingredient: "+  ingredient, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openFoodDetailsLayout(FoodUnhealthy food) {
+        Intent intent = new Intent(this, UnhealthyFoodDetailsActivity.class);
+        intent.putExtra("food_list", new ArrayList<>(foodList));
+        intent.putExtra("food_name", food.getName());
+        intent.putExtra("food_alternative", food.getAlternative());
+        intent.putExtra("food_image", food.getImage());
+        intent.putExtra("food_description", food.getDescription());
+        intent.putExtra("food_category", food.getCategory());
+        intent.putExtra("food_type", food.getType());
+        intent.putExtra("food_calories", food.getCalories());
+        intent.putExtra("food_disbenefit", food.getDisbenefit());
+        intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
+        startActivity(intent);
     }
 }

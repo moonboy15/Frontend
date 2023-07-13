@@ -220,10 +220,6 @@ public class HealthyFoodActivity extends AppCompatActivity {
     }
 
 
-    public interface OnItemClickListener {
-        void onItemClick(Food food);
-    }
-
     private class FoodAdapter extends ArrayAdapter<Food> {
 
         public FoodAdapter(List<Food> foodList) {
