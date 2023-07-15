@@ -59,6 +59,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
         String foodDescription = intent.getStringExtra("food_description");
         ArrayList<String> ingredientList = intent.getStringArrayListExtra("food_ingredients");
         ArrayList<String> measurementList = intent.getStringArrayListExtra("food_measurements");
+        ArrayList<String> ingredientsImageList = intent.getStringArrayListExtra("food_ingredients_image");
 
 
         TextView foodNameTextView = findViewById(R.id.textView_food_name);
@@ -95,7 +96,16 @@ public class FoodDetailsActivity extends AppCompatActivity {
         ingredientsRecyclerView.setLayoutManager(layoutManager);
         ingredientsRecyclerView.setHasFixedSize(true);
 
-        IngredientsAdapter adapter = new IngredientsAdapter(ingredientList, measurementList, new IngredientsAdapter.OnIngredientClickListener() {
+        List<String> filteredIngredientsImageList = new ArrayList<>();
+        for (int i = 0; i < ingredientList.size(); i++) {
+            if (i < ingredientsImageList.size()) {
+                filteredIngredientsImageList.add(ingredientsImageList.get(i));
+            } else {
+                filteredIngredientsImageList.add(null);
+            }
+        }
+
+        IngredientsAdapter adapter = new IngredientsAdapter(ingredientList, measurementList, filteredIngredientsImageList, new IngredientsAdapter.OnIngredientClickListener() {
             @Override
             public void onIngredientClick(String ingredient) {
                 openFoodDetailsForIngredient(ingredient);
@@ -141,6 +151,7 @@ public class FoodDetailsActivity extends AppCompatActivity {
         intent.putExtra("food_benefit", food.getBenefit());
         intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
         intent.putExtra("food_measurements", new ArrayList<>(food.getMeasurements()));
+        intent.putExtra("food_ingredients_image", new ArrayList<>(food.getIngredientsImage()));
         startActivity(intent);
     }
 

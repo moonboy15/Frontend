@@ -1,5 +1,6 @@
 package com.example.signuploginfirebase;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,13 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
 
     private List<String> ingredientList;
     private List<String> measurementList;
+    private List<String> ingredientsImageList;
     private OnIngredientClickListener onIngredientClickListener; // Listener interface
 
-    public IngredientsAdapter(List<String> ingredientList, List<String> measurementList, OnIngredientClickListener listener) {
+    public IngredientsAdapter(List<String> ingredientList, List<String> measurementList, List<String> ingredientsImageList, OnIngredientClickListener listener) {
         this.ingredientList = ingredientList;
         this.measurementList = measurementList;
+        this.ingredientsImageList = ingredientsImageList;
         this.onIngredientClickListener = listener;
     }
 
@@ -37,11 +40,27 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         String ingredient = ingredientList.get(position);
         String measurement = measurementList.get(position);
 
+
         holder.ingredientTextView.setText(ingredient);
+        holder.ingredientTextView.setSelected(true);
         holder.measurementTextView.setText(measurement);
+        holder.measurementTextView.setSelected(true);
+
+        if(ingredientsImageList != null && position < ingredientsImageList.size()){
+            String ingredientImage = ingredientsImageList.get(position);
+            if(TextUtils.isEmpty(ingredientImage)){
+                holder.ingredientImageView.setImageResource(R.drawable.no_image);
+            }else {
+                int resourceId = holder.itemView.getContext().getResources().getIdentifier(ingredientImage, "drawable", holder.itemView.getContext().getPackageName());
+                holder.ingredientImageView.setImageResource(resourceId);
+            }
+        } else{
+            holder.ingredientImageView.setImageResource(R.drawable.no_image);
+        }
 
         // Set click listener for the ingredient image
         holder.ingredientImageView.setOnClickListener(new View.OnClickListener() {

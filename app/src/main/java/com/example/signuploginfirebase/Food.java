@@ -19,8 +19,9 @@ public class Food implements Parcelable {
     private List<String> ingredients;
     private List<String> measurements;
     private String image;
+    private List<String> ingredientsImage;
 
-    public Food(String name, String recipe, String description, String image, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements) {
+    public Food(String name, String recipe, String description, String image, String category, String type, int calories, String benefit, List<String> ingredients, List<String> measurements, List<String> ingredientsImage) {
         this.name = name;
         this.recipe = recipe;
         this.description = description;
@@ -31,6 +32,7 @@ public class Food implements Parcelable {
         this.ingredients = ingredients;
         this.measurements = measurements;
         this.image = image;
+        this.ingredientsImage = ingredientsImage;
     }
 
     protected Food(Parcel in) {
@@ -44,6 +46,7 @@ public class Food implements Parcelable {
         ingredients = in.createStringArrayList();
         measurements = in.createStringArrayList();
         image = in.readString();
+        ingredientsImage = in.createStringArrayList();
     }
 
     public static final Creator<Food> CREATOR = new Creator<Food>() {
@@ -110,6 +113,10 @@ public class Food implements Parcelable {
         return image;
     }
 
+    public List<String> getIngredientsImage() {
+        return ingredientsImage;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -127,6 +134,7 @@ public class Food implements Parcelable {
         dest.writeStringList(ingredients);
         dest.writeStringList(measurements);
         dest.writeString(image);
+        dest.writeStringList(ingredientsImage);
     }
 }
 

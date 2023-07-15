@@ -39,6 +39,7 @@ public class UnhealthyIngredientsAdapter extends RecyclerView.Adapter<UnhealthyI
         String ingredient = ingredientList.get(position);
 
         holder.ingredientTextView.setText(ingredient);
+        holder.ingredientTextView.setSelected(true);
 
         holder.ingredientImageView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -64,21 +64,25 @@ public class HealthyFoodActivity extends AppCompatActivity {
 
                     List<String> ingredients = new ArrayList<>();
                     List<String> measurements = new ArrayList<>();
+                    List<String> ingredientsImageList = new ArrayList<>();
 
                     for (int j = 1; j <= 20; j++){
                         String ingredientKey = "ingredient " + j;
                         String measurementKey = "measurement " + j;
+                        String ingredientImageKey = "ingredient image "+ j;
 
-                        if (foodObject.has(ingredientKey) && foodObject.has(measurementKey)) {
+                        if (foodObject.has(ingredientKey) && foodObject.has(measurementKey) && foodObject.has(ingredientImageKey)) {
                             String ingredient = foodObject.getString(ingredientKey);
                             String measurement = foodObject.getString(measurementKey);
+                            String ingredientImage = foodObject.getString(ingredientImageKey);
 
                             ingredients.add(ingredient);
                             measurements.add(measurement);
+                            ingredientsImageList.add(ingredientImage);
                         }
                     }
 
-                    Food food = new Food(foodName, foodRecipe, foodDescription, foodImage, foodCategory, foodType, foodCalories,foodBenefit, ingredients, measurements);
+                    Food food = new Food(foodName, foodRecipe, foodDescription, foodImage, foodCategory, foodType, foodCalories,foodBenefit, ingredients, measurements, ingredientsImageList);
                     foodList.add(food);
                     food.setImage(foodImage);
                 }
@@ -295,6 +299,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
         intent.putExtra("food_benefit", food.getBenefit());
         intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
         intent.putExtra("food_measurements", new ArrayList<>(food.getMeasurements()));
+        intent.putExtra("food_ingredients_image", new ArrayList<>(food.getIngredientsImage()));
         startActivity(intent);
     }
 
