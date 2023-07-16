@@ -114,6 +114,15 @@ public class FoodDetailsActivity extends AppCompatActivity {
         ingredientsRecyclerView.setAdapter(adapter);
 
         recipe_textView.setText(foodRecipe);
+
+        ImageView BtnBack = findViewById(R.id.button_details_back);
+
+        BtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     private void toggleRecipeLayout() {
         if (recipeLayout.getVisibility() == View.VISIBLE) {

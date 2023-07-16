@@ -47,10 +47,10 @@
                     android:textSize="16sp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:text="Age (Years)"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lilita_one"/>
 
                 <EditText
                     android:inputType="numberDecimal"
@@ -84,10 +84,10 @@
                     android:textSize="16sp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:text="Weight (Kg)"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lilita_one"/>
 
                 <EditText
                     android:inputType="numberDecimal"
@@ -120,9 +120,8 @@
             android:text="Height"
             android:textSize="18sp"
             android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_height="wrap_content"/>
+            android:fontFamily="@font/lilita_one"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -198,7 +197,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:text="Bmi Result"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:gravity="center"
             android:textStyle="bold|italic"
             android:layout_gravity="center"
@@ -221,8 +220,8 @@
             android:layout_width="wrap_content"
             android:text="Calculate"
             android:textSize="22sp"
-            android:textStyle="bold"
             android:textColor="@color/white"
+            android:fontFamily="@font/lilita_one"
             android:layout_height="wrap_content"/>
 
     </androidx.cardview.widget.CardView>

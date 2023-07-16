@@ -105,6 +105,14 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         });
         unhealthyIngredientsRecyclerView.setAdapter(adapter);
         alternative_textView.setText(foodAlternative);
+
+        ImageView BtnBack = findViewById(R.id.button_details_back);
+        BtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     private void toggleAlternativeLayout() {
         if (alternativeLayout.getVisibility() == View.VISIBLE) {

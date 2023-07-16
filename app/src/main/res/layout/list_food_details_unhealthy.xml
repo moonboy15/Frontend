@@ -6,12 +6,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        app:title="Food Details"
-        app:titleTextColor="@color/white"
+    <RelativeLayout
         android:background="@color/red"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+        android:orientation="horizontal"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/button_details_back"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/left" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unhealthy Food Details"
+            android:textColor="@color/white_smoke"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:fontFamily="@font/lilita_one"
+            android:layout_marginTop="15dp"
+            android:gravity="center"/>
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,11 +47,12 @@
                 android:id="@+id/textView_food_name_unhealthy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:padding="4dp"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/lilita_one"/>
 
             <ImageView
                 android:id="@+id/foodDetail_imageView_unhealthy"
@@ -165,7 +186,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/dark_red"
-                android:text="See Alternatives" />
+                android:text="See Alternatives"
+                android:fontFamily="@font/lilita_one"/>
 
             <LinearLayout
                 android:id="@+id/alternativeView_layout"
@@ -194,7 +216,8 @@
                 android:padding="8dp"
                 android:text="Ingredients / Related Food"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/lilita_one"/>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"

@@ -19,9 +19,9 @@
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
-            android:textStyle="bold"
             android:textColor="@color/orange"
-            android:textSize="22sp"
+            android:textSize="23sp"
+            android:fontFamily="@font/lilita_one"
             android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -52,7 +52,8 @@
                     android:id="@+id/foodTypeTextView"
                     android:textSize="14sp"
                     android:padding="8dp"
-                    android:text="-"
+                    android:text="Dish"
+                    android:fontFamily="@font/lilita_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -71,7 +72,8 @@
                     android:id="@+id/foodBenefitTextView"
                     android:textSize="14sp"
                     android:padding="8dp"
-                    android:text="-"
+                    android:text="Heart"
+                    android:fontFamily="@font/lilita_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

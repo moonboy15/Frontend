@@ -9,13 +9,23 @@
     android:padding="20dp">
 
     <ImageView
+        android:id="@+id/button_userDetails_to_signup"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:layout_gravity="end"
+        android:src="@drawable/left" />
+
+    <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginTop="-30dp"
         android:src="@drawable/lusog_logo"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Welcome"
         android:textSize="40sp"
         android:fontFamily="@font/lilita_one"/>
@@ -24,7 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please enter your personal details"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:padding="4dp"
+        android:fontFamily="@font/lilita_one"/>
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,6 +44,20 @@
         android:orientation="vertical"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm email"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name"
@@ -110,8 +136,12 @@
     </LinearLayout>
     
     <Button
+        android:id="@+id/button_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"/>
+        android:background="@color/dim_gray"
+        android:text="Submit"
+        android:textSize="18sp"
+        android:fontFamily="@font/lilita_one"/>
 
 </LinearLayout>

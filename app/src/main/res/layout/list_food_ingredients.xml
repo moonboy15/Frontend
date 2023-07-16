@@ -20,9 +20,11 @@
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
+            android:text="Ingredient"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/lilita_one"
             android:padding="4dp"/>
         
         <ImageView
@@ -39,8 +41,10 @@
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
+            android:text="1pc"
             android:textSize="16sp"
             android:textAlignment="center"
+            android:fontFamily="@font/lilita_one"
             android:padding="4dp"/>
 
     </LinearLayout>

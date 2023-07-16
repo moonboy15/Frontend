@@ -32,6 +32,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -41,9 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private FirebaseAuth auth;
     TextView forgotPassword;
-//    GoogleSignInButton googleBtn;
-    GoogleSignInOptions gOptions;
-//    GoogleSignInClient gClient;
+
 
 
     @Override
@@ -56,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signUpRedirectText);
         forgotPassword = findViewById(R.id.forgot_password);
-//        googleBtn = findViewById(R.id.googleBtn);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -74,8 +78,10 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
                                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                        finish();
+
+                                        isUser();
+//                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//                                        finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -144,41 +150,70 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 dialog.show();
             }
-//        });
-//        //Inside onCreate
-//        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-//        gClient = GoogleSignIn.getClient(this, gOptions);
-//
-//        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
-//        if (gAccount != null){
-//            finish();
-//            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//            startActivity(intent);
-//        }
-//        ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-//                new ActivityResultCallback<ActivityResult>() {
-//                    @Override
-//                    public void onActivityResult(ActivityResult result) {
-//                        if (result.getResultCode() == Activity.RESULT_OK){
-//                            Intent data = result.getData();
-//                            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-//                            try {
-//                                task.getResult(ApiException.class);
-//                                finish();
-//                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                                startActivity(intent);
-//                            } catch (ApiException e){
-//                                Toast.makeText(LoginActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                    }
-//                });
-//        googleBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent signInIntent = gClient.getSignInIntent();
-//                activityResultLauncher.launch(signInIntent);
-//            }
         });
+
+        TextView buttonOffline = findViewById(R.id.button_offline_option);
+
+        buttonOffline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
+    private void isUser() {
+
+        final String userEnteredEmail = loginEmail.getText().toString();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+
+        Query checkUser = reference.orderByChild("userEmail").equalTo(userEnteredEmail);
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    loginEmail.setError(null);
+
+                    for(DataSnapshot userSnapshot : snapshot.getChildren()) {
+
+                        String nameFromDB = userSnapshot.child("userName").getValue(String.class);
+                        String emailFromDB = userSnapshot.child("userEmail").getValue(String.class);
+                        String ageFromDB = userSnapshot.child("age").getValue(String.class);
+                        String heightFromDB = userSnapshot.child("height").getValue(String.class);
+                        String weightFromDB = userSnapshot.child("weight").getValue(String.class);
+                        String sicknessFromDB = userSnapshot.child("sickness").getValue(String.class);
+
+                        Intent intent = new Intent(getApplicationContext(), UserProfile.class);
+
+                        intent.putExtra("userName",nameFromDB);
+                        intent.putExtra("userEmail",emailFromDB);
+                        intent.putExtra("age",ageFromDB);
+                        intent.putExtra("height",heightFromDB);
+                        intent.putExtra("weight",weightFromDB);
+                        intent.putExtra("sickness",sicknessFromDB);
+
+                        startActivity(intent);
+                        return;
+                    }
+
+                } else {
+                    loginEmail.setError("Email does not exist");
+                    loginEmail.requestFocus();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 }

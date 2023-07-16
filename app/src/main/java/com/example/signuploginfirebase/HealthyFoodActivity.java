@@ -174,6 +174,15 @@ public class HealthyFoodActivity extends AppCompatActivity {
                 filterFoodByType("Misc.");
             }
         });
+
+        ImageView BtnBack = findViewById(R.id.button_list_to_categories);
+
+        BtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private String loadJSONFromAsset() {

@@ -1,0 +1,32 @@
+{
+	"unhealthy": [{
+			"food name": "Chips",
+			"food image": "Chips",
+			"food description": "Chips that lack nutrients, vitamins and minerals, and are high in kilojoules (energy), salts, sugars, and fats.\n\nFood Description:\nChips are a popular snack choice, but they are often considered unhealthy due to their low nutritional value. They are typically high in calories, salt, sugar, and unhealthy fats. Regular consumption of chips can contribute to weight gain and increase the risk of chronic diseases such as cardiovascular disease and type 2 diabetes. It is recommended to limit the intake of chips and opt for healthier snack alternatives.",
+			"food category": "Snacks",
+			"food type": "Snacks",
+			"food calories": 300,
+			"food disbenefit": "Obesity",
+			"food alternative": "Food Alternative:\nDried nuts",
+			"ingredient 1": "Salt",
+			"ingredient 2": "Vegetable oil",
+			"ingredient 3": "",
+			"ingredient 4": ""
+
+		},
+		{
+			"food name": "Chicharon",
+			"food image": "Chicharon",
+			"food description": "A dish usually featuring deep-fried pork rind (skin) or pork belly or both.\n\nFood Description:\nChicharon is a popular Filipino dish made from deep-fried pork rind or pork belly. It is known for its crispy texture and savory flavor. However, it is important to note that chicharon is high in fat and cholesterol, which can contribute to health issues such as hypertension, high blood pressure, and heart attack when consumed in excess. It is recommended to enjoy chicharon in moderation and explore healthier alternatives.",
+			"food category": "Pork",
+			"food type": "Dish",
+			"food calories": 160,
+			"food disbenefit": "Heart attack",
+			"food alternative": "Food Alternative:\nTofu",
+			"ingredient 1": "Pork Belly",
+			"ingredient 2": "Oil",
+			"ingredient 3": "",
+			"ingredient 4": ""
+		}
+	]
+}

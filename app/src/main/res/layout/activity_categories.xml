@@ -17,26 +17,30 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize">
 
-            <ImageView
-                android:layout_width="50dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/left"
-                android:padding="15dp"
-                android:layout_centerVertical="true"/>
+                android:text="Categories"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-black"
+                android:padding="12dp"/>
+
+            <ImageView
+                android:id="@+id/button_to_profile"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/user"
+                android:padding="16dp"
+                android:layout_alignParentRight="true"/>
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Categories"
-            android:textSize="30sp"
-            android:fontFamily="sans-serif-black"
-            android:padding="10dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp">
+            android:layout_height="190dp"
+            android:layout_marginTop="20dp">
 
             <RelativeLayout
                 android:id="@+id/button_healthyFood"
@@ -46,7 +50,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/round_bk2">
+                android:background="@drawable/category_btn_lime">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -63,7 +67,7 @@
                     android:background="#00FFFFFF"
                     android:padding="20dp"
                     android:text="@string/healthy_subtext"
-                    android:textColor="@color/dim_gray"/>
+                    />
 
 
             </RelativeLayout>
@@ -82,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="20dp"
-            android:background="@drawable/round_bk5">
+            android:background="@drawable/category_btn_red">
 
             <ImageView
                 android:layout_width="120dp"
@@ -122,7 +126,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/food_back">
+                android:background="@drawable/category_btn_saves">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -157,7 +161,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp">
+            android:layout_height="190dp"
+            android:layout_marginBottom="30dp">
 
             <RelativeLayout
                 android:id="@+id/button_bmiCalculator"
@@ -190,10 +195,11 @@
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="140dp"
+                android:layout_width="110dp"
                 android:layout_height="120dp"
                 android:src="@drawable/ic_calories"
                 android:layout_marginTop="0dp"
+                android:layout_marginEnd="10dp"
                 android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>

@@ -66,8 +66,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
         buttonBackBmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BMICalculatorActivity.this, CategoriesActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
     }

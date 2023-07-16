@@ -3,6 +3,7 @@ package com.example.signuploginfirebase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,16 @@ public class CategoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CategoriesActivity.this, UnhealthyFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageView BtnProfile = findViewById(R.id.button_to_profile);
+
+        BtnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CategoriesActivity.this, UserProfile.class);
                 startActivity(intent);
             }
         });

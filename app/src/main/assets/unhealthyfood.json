@@ -10,7 +10,9 @@
       "food disbenefit": "Kidney",
       "food alternative": "",
       "ingredient 1": "Chicken Blood",
-      "ingredient 2": "Vinegar"
+      "ingredient 2": "Vinegar",
+      "ingredient image 1": "",
+      "ingredient image 2": ""
     },
     {
       "food name": "Chicharon Bulaklak",
@@ -20,9 +22,11 @@
       "food type": "Dish",
       "food calories": 180,
       "food disbenefit": "Heart",
-      "food alternative": "",
+      "food alternative": "[ Food Alternative:\nIf you're looking for a healthier alternative to chicharon, consider options like tuna flakes or tofu. Tuna flakes are a lean source of protein and healthy fats, while tofu is a plant-based protein option. These alternatives offer a lower fat and cholesterol content compared to chicharon, making them a better choice for individuals concerned about their cardiovascular health. ]",
       "ingredient 1": "Chicharon",
-      "ingredient 2": "Onion"
+      "ingredient 2": "Onion",
+      "ingredient image 1": "",
+      "ingredient image 2": ""
 
     },
     {
@@ -35,10 +39,12 @@
       "food disbenefit": "Liver",
       "food alternative": "Green Tea",
       "ingredient 1": "Milk",
-      "ingredient 2": "Boba"
+      "ingredient 2": "Boba",
+      "ingredient image 1": "",
+      "ingredient image 2": ""
     },
     {
-      "food name": "Chicharon",
+      "food name": "Chicharon old",
       "food image": "nilagang_baka",
       "food description": "An Unhealthy ingredient for our body!",
       "food category": "Pork",
@@ -47,7 +53,23 @@
       "food disbenefit": "Heart",
       "food alternative": "",
       "ingredient 1": "",
-      "ingredient 2": ""
+      "ingredient 2": "",
+      "ingredient image 1": "",
+      "ingredient image 2": ""
+    },
+    {
+      "food name": "Chicharon",
+      "food image": "Chicharon",
+      "food description": "A dish usually featuring deep-fried pork rind (skin) or pork belly or both.\n\n[ Food Description:\nChicharon is a popular Filipino dish made from deep-fried pork rind or pork belly. It is known for its crispy texture and savory flavor. However, it is important to note that chicharon is high in fat and cholesterol, which can contribute to health issues such as hypertension, high blood pressure, and heart attack when consumed in excess. It is recommended to enjoy chicharon in moderation and explore healthier alternatives. ]",
+      "food category": "Pork",
+      "food type": "Dish",
+      "food calories": 160,
+      "food disbenefit": "Heart",
+      "food alternative": "Food Alternative:\nIf you're looking for a healthier alternative to chicharon, consider options like tuna flakes or tofu. Tuna flakes are a lean source of protein and healthy fats, while tofu is a plant-based protein option. These alternatives offer a lower fat and cholesterol content compared to chicharon, making them a better choice for individuals concerned about their cardiovascular health.",
+      "ingredient 1": "Pork Belly",
+      "ingredient 2": "Oil",
+      "ingredient image 1": "",
+      "ingredient image 2": ""
     }
   ]
 }

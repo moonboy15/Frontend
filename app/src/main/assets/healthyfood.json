@@ -2,7 +2,7 @@
   "healthy": [
     {
       "food name": "Salad",
-      "food recipe": "Mix vegetables and dressing.",
+      "food recipe": "<b>Prepare</b> the tofu and cut into large cubes. Set aside. Heat some oil in a pan. Fry the tofu cubes until brown and crispy. Flip all sides to cook evenly. Transfer them to a strainer or paper towel to drain excess oil. Set aside. Using the same pan, add the onions and garlic and saute for a few minutes. Once the garlic is light brown, add the oyster sauce and stir a bit. Turn the heat to medium low. Add the liquid seasoning and mix well.Combine water and cornstarch in a bowl to make a slurry. Mix well. Pour the slurry into the mixture and stir well. Season with salt, pepper and sugar. Stir until the sauce thickens. Once thick, add the kangkong. Mix gently until softened. Then, add the fried tofu cubes. Toss gently until well coated with the sauce. Add some fried garlic bits (optional) and then let it simmer for a few more minutes. Turn the heat off. Transfer the stir fry tofu and kangkong to a serving plate. Enjoy this as an appetizer or have it with a big bowl of hot steaming rice.",
       "food image": "nilagang_baboy",
       "food description": "A healthy easy to make food!",
       "food category": "Veggies",
@@ -105,13 +105,13 @@
       "food type": "Ingredient",
       "food calories": 10,
       "food benefit": "Lungs",
-      "ingredient 1": "",
+      "ingredient 1": "Salad",
       "ingredient 2": "",
       "ingredient 3": "",
       "measurement 1": "",
       "measurement 2": "",
       "measurement 3": "",
-      "ingredient image 1": "",
+      "ingredient image 1": "nilagang_baboy",
       "ingredient image 2": "",
       "ingredient image 3": ""
     },
