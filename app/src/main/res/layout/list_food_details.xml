@@ -10,7 +10,7 @@
         android:background="@color/lime_green"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="50dp"
         android:layout_gravity="center">
 
         <ImageView
@@ -18,18 +18,18 @@
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:padding="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/left" />
+            android:src="@drawable/back" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Healthy Food Details"
             android:textColor="@color/white_smoke"
             android:textStyle="bold"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:fontFamily="@font/lilita_one"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"/>
     </RelativeLayout>
 
@@ -51,7 +51,7 @@
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="Food name"
-                android:textSize="26sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/lilita_one"/>
 
@@ -181,13 +181,15 @@
                 android:textSize="14sp" />
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_see_recipe"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/forest_green"
+                android:background="@drawable/button_lime"
                 android:text="See Recipe"
+                android:textAllCaps="false"
+                android:textColor="@color/white_smoke"
                 android:fontFamily="@font/lilita_one"/>
 
             <LinearLayout
@@ -217,7 +219,6 @@
                 android:padding="8dp"
                 android:text="Ingredients / Related Food"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 android:fontFamily="@font/lilita_one"/>
 
             <HorizontalScrollView

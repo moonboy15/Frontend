@@ -47,8 +47,12 @@ public class CategoriesActivity extends AppCompatActivity {
         BtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CategoriesActivity.this, UserProfile.class);
-                startActivity(intent);
+
+                LoginActivity loginActivity = new LoginActivity();
+                loginActivity.isUser();
+//                Intent intent = new Intent(CategoriesActivity.this, UserProfile.class);
+//
+//                startActivity(intent);
             }
         });
     }

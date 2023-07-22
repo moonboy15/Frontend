@@ -22,7 +22,10 @@
         <item>All</item>
         <item>Heart</item>
         <item>Liver</item>
-        <item>Lungs</item>
+        <item>Obesity</item>
+        <item>Diabetes</item>
+        <item>Diarrhea</item>
+        <item>Digestive System</item>
     </string-array>
 
 </resources>

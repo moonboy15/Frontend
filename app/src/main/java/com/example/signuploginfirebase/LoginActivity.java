@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,7 +166,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void isUser() {
+    public void isUser() {
+
+        UserSession userSession = new UserSession();
+        userSession.userEmailSession=loginEmail.getText().toString();
 
         final String userEnteredEmail = loginEmail.getText().toString();
 

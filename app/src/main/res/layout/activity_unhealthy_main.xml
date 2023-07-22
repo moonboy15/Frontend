@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".UnhealthyFoodActivity">
+    tools:context=".UnhealthyFoodActivity"
+    android:background="@color/indian_red">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,27 +19,27 @@
             android:layout_height="40dp"
             android:layout_marginTop="3dp"
             android:padding="8dp"
-            android:src="@drawable/left" />
+            android:src="@drawable/back" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/red">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="left"
+                android:text="Unhealthy Food Category"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/white_smoke"
+                android:fontFamily="@font/lilita_one"/>
+
+        </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/red">
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_margin="0dp"
-            android:layout_gravity="left"
-            android:text="Unhealthy Food Category"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/white_smoke"
-            android:fontFamily="@font/lilita_one"/>
-
-    </androidx.appcompat.widget.Toolbar>
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -49,18 +50,18 @@
             android:id="@+id/searchEditText_unhealthy"
             android:layout_width="320dp"
             android:layout_height="match_parent"
-            android:background="@color/white_smoke"
+            android:background="@drawable/white_box"
             app:iconifiedByDefault="false"
-            app:queryHint="Search.." />
+            app:queryHint="Search Unhealthy Food" />
 
         <Spinner
-            android:background="@drawable/ic_filters"
+            android:background="@drawable/ic_filter2"
             android:id="@+id/spinner_tags_unhealthy"
             android:layout_marginStart="30dp"
             android:padding="10dp"
             android:gravity="center"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_width="35dp"
+            android:layout_height="30dp"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -73,12 +74,13 @@
             android:id="@+id/foodTypesLayout_unhealthy"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/red">
             <Button
                 android:id="@+id/button_dish_unhealthy"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/dark_red"
+                android:background="@drawable/box_red"
                 android:text="Dish"
                 android:textSize="18sp"
                 android:fontFamily="@font/lilita_one"/>
@@ -86,7 +88,7 @@
                 android:id="@+id/button_drink_unhealthy"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/dark_red"
+                android:background="@drawable/box_red"
                 android:text="Drink"
                 android:textSize="18sp"
                 android:fontFamily="@font/lilita_one"/>
@@ -94,7 +96,7 @@
                 android:id="@+id/button_ingredient_unhealthy"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/dark_red"
+                android:background="@drawable/box_red"
                 android:text="Ingredient"
                 android:textSize="18sp"
                 android:fontFamily="@font/lilita_one"/>
@@ -102,7 +104,7 @@
                 android:id="@+id/button_snack_unhealthy"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/dark_red"
+                android:background="@drawable/box_red"
                 android:text="Snack"
                 android:textSize="18sp"
                 android:fontFamily="@font/lilita_one"/>
@@ -110,7 +112,7 @@
                 android:id="@+id/button_misc_unhealthy"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/dark_red"
+                android:background="@drawable/box_red"
                 android:text="Misc."
                 android:textSize="18sp"
                 android:fontFamily="@font/lilita_one"/>
@@ -123,6 +125,8 @@
         android:id="@+id/foodListView_unhealthy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp" />
+        android:layout_margin="12dp"
+        android:divider="@color/indian_red"
+        android:dividerHeight="15dp"/>
 
 </LinearLayout>

@@ -17,8 +17,8 @@
             android:id="@+id/bmi_backButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/left"
-            android:padding="15dp"
+            android:src="@drawable/back"
+            android:padding="12dp"
             android:layout_centerVertical="true"/>
     </LinearLayout>
 

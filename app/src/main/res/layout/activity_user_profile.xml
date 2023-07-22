@@ -20,13 +20,13 @@
 
             <ImageView
                 android:id="@+id/button_profile_to_categories"
+                android:alpha="0.4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="-8dp"
-                android:layout_marginLeft="-10dp"
-                android:padding="12dp"
-                android:src="@drawable/left"/>
-
+                android:layout_alignParentEnd="true"
+                android:padding="7dp"
+                android:src="@drawable/cross_button_wrapped"/>
 
             <ImageView
                 android:id="@+id/profile_image"
@@ -136,15 +136,6 @@
             android:text="Update"
             android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/button_proceed_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/black"
-            android:text="Proceed"
-            android:textSize="16sp"
-            android:fontFamily="@font/lilita_one"/>
 
     </LinearLayout>
     </LinearLayout>

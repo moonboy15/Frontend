@@ -31,21 +31,13 @@ public class UserProfile extends AppCompatActivity {
 
         showAllUserData();
 
-        Button BtnProceed = findViewById(R.id.button_proceed_profile);
         ImageView BtnBack = findViewById(R.id.button_profile_to_categories);
-
-        BtnProceed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserProfile.this, CategoriesActivity.class);
-                startActivity(intent);
-            }
-        });
 
         BtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent = new Intent(UserProfile.this, CategoriesActivity.class);
+                startActivity(intent);
             }
         });
 
