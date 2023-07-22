@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".UserInfoRegistration"
     android:orientation="vertical"
+    android:background="@color/white_smoke"
     android:padding="20dp">
 
     <ImageView
@@ -14,11 +15,13 @@
         android:layout_height="40dp"
         android:padding="8dp"
         android:layout_gravity="end"
+        android:alpha="0.6"
         android:src="@drawable/left" />
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="-30dp"
         android:src="@drawable/lusog_logo"/>
 
@@ -26,17 +29,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Welcome"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Welcome!"
         android:textSize="40sp"
         android:fontFamily="@font/lilita_one"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="-20dp"
         android:text="Please enter your personal details"
         android:textSize="18sp"
-        android:padding="4dp"
-        android:fontFamily="@font/lilita_one"/>
+        android:padding="4dp" />
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -120,19 +125,13 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/user_sickness"
+        <Spinner
+            android:id="@+id/sickness_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Known Disease/Sickness"
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textAutoComplete"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="55dp"
+            android:background="@drawable/dropdown_sickness_box"
+            android:spinnerMode="dialog"
+            android:layout_marginTop="12dp"/>
     </LinearLayout>
     
     <Button

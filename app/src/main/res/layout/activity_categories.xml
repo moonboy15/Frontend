@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ghost_white"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -115,49 +114,7 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="190dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/category_btn_saves">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:layout_alignParentEnd="true"
-                    android:padding="25dp"
-                    android:text="@string/saved_header"
-                    android:textColor="@color/white_smoke"
-                    android:textSize="30sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="#00FFFFFF"
-                    android:padding="20dp"
-                    android:text="@string/saved_subtext"
-                    android:textColor="@color/ghost_white"/>
-
-
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:src="@drawable/bangus_png"
-                android:layout_marginTop="-20dp"
-                android:layout_alignParentLeft="true"/>
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
