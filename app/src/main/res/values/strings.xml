@@ -14,8 +14,10 @@
     <string-array name="food_benefits">
         <item>All</item>
         <item>Heart</item>
-        <item>Liver</item>
+        <item>Bones</item>
         <item>Lungs</item>
+        <item>Stomach</item>
+        <item>Blood</item>
     </string-array>
 
     <string-array name="food_disbenefits">
@@ -23,6 +25,7 @@
         <item>Heart</item>
         <item>Liver</item>
         <item>Obesity</item>
+        <item>Kidney</item>
         <item>Diabetes</item>
         <item>Diarrhea</item>
         <item>Digestive System</item>

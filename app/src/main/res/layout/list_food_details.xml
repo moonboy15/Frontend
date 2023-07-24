@@ -28,8 +28,8 @@
             android:textColor="@color/white_smoke"
             android:textStyle="bold"
             android:textSize="24sp"
-            android:fontFamily="@font/lilita_one"
-            android:layout_marginTop="10dp"
+            android:fontFamily="@font/visby_extra_bold"
+            android:layout_marginTop="8dp"
             android:gravity="center"/>
     </RelativeLayout>
 
@@ -53,7 +53,7 @@
                 android:text="Food name"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/lilita_one"/>
+                android:fontFamily="@font/visby_heavy"/>
 
             <ImageView
                 android:id="@+id/foodDetail_imageView"
@@ -103,6 +103,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="Pork"
                             android:textSize="15sp"
+                            android:fontFamily="@font/visby_bold"
                             android:textStyle="italic"/>
                         <TextView
                             android:id="@+id/textView_food_type"
@@ -112,6 +113,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="Dish"
                             android:textSize="15sp"
+                            android:fontFamily="@font/visby_bold"
                             android:textStyle="italic"/>
 
                     </LinearLayout>
@@ -145,15 +147,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/textView_food_benefit"
-                            android:layout_width="match_parent"
+                            android:layout_width="441dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="18dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="18dp"
+                            android:fontFamily="@font/visby_bold"
                             android:text="Heart"
                             android:textSize="15sp"
-                            android:textStyle="italic"/>
+                            android:textStyle="italic" />
                         <TextView
                             android:id="@+id/textView_food_calories"
                             android:layout_width="match_parent"
@@ -162,6 +166,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="104"
                             android:textSize="15sp"
+                            android:fontFamily="@font/visby_bold"
                             android:textStyle="italic"/>
 
                     </LinearLayout>
@@ -188,9 +193,10 @@
                 android:layout_gravity="center"
                 android:background="@drawable/button_lime"
                 android:text="See Recipe"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:textColor="@color/white_smoke"
-                android:fontFamily="@font/lilita_one"/>
+                android:fontFamily="@font/visby_extra_bold"/>
 
             <LinearLayout
                 android:id="@+id/recipeView_layout"
@@ -219,7 +225,7 @@
                 android:padding="8dp"
                 android:text="Ingredients / Related Food"
                 android:textSize="18sp"
-                android:fontFamily="@font/lilita_one"/>
+                android:fontFamily="@font/visby_extra_bold"/>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"

@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:text="Age (Years)"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lilita_one"/>
+                    android:fontFamily="@font/visby_heavy"/>
 
                 <EditText
                     android:inputType="numberDecimal"
@@ -87,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:text="Weight (Kg)"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lilita_one"/>
+                    android:fontFamily="@font/visby_heavy"/>
 
                 <EditText
                     android:inputType="numberDecimal"
@@ -120,7 +120,7 @@
             android:text="Height"
             android:textSize="18sp"
             android:gravity="center"
-            android:fontFamily="@font/lilita_one"
+            android:fontFamily="@font/visby_heavy"
             android:layout_height="wrap_content" />
 
         <LinearLayout
@@ -196,12 +196,13 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:text="Bmi Result"
+            android:text="BMI Result"
             android:textSize="22sp"
             android:gravity="center"
             android:textStyle="bold|italic"
             android:layout_gravity="center"
             android:textColor="@color/lime_green"
+            android:fontFamily="@font/visby_heavy"
             android:layout_height="wrap_content"/>
 
     </androidx.cardview.widget.CardView>
@@ -221,7 +222,7 @@
             android:text="Calculate"
             android:textSize="22sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/lilita_one"
+            android:fontFamily="@font/visby_heavy"
             android:layout_height="wrap_content"/>
 
     </androidx.cardview.widget.CardView>
