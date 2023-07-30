@@ -97,12 +97,10 @@ public class UserInfoRegistration extends AppCompatActivity {
                 boolean isDuplicate = dataSnapshot.exists();
 
                 if (isDuplicate) {
-                    // Handle duplicate registration (e.g., show error message)
                     Toast.makeText(UserInfoRegistration.this, "User already exists", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Register the user since no duplicate found
                     String encodedEmail = encodeEmail(user.getUserEmail());
-                    reference.child(encodedEmail).setValue(user); // Assign the encoded email as the child key
+                    reference.child(encodedEmail).setValue(user);
 
                     Toast.makeText(UserInfoRegistration.this, "Registration successful", Toast.LENGTH_SHORT).show();
 
@@ -113,7 +111,6 @@ public class UserInfoRegistration extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle error case
                 Toast.makeText(UserInfoRegistration.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

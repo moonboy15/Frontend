@@ -1,5 +1,6 @@
 package com.example.signuploginfirebase;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,12 @@ import java.util.List;
 public class UnhealthyIngredientsAdapter extends RecyclerView.Adapter<UnhealthyIngredientsAdapter.ViewHolder> {
 
     private List<String> ingredientList;
-
+    private List<String> ingredientsImageList;
     private IngredientsAdapter.OnIngredientClickListener onIngredientClickListener;
 
-    public UnhealthyIngredientsAdapter(List<String> ingredientList, IngredientsAdapter.OnIngredientClickListener listener) {
+    public UnhealthyIngredientsAdapter(List<String> ingredientList, List<String> ingredientsImageList,IngredientsAdapter.OnIngredientClickListener listener) {
         this.ingredientList = ingredientList;
+        this.ingredientsImageList = ingredientsImageList;
         this.onIngredientClickListener = listener;
     }
 
@@ -40,6 +42,18 @@ public class UnhealthyIngredientsAdapter extends RecyclerView.Adapter<UnhealthyI
 
         holder.ingredientTextView.setText(ingredient);
         holder.ingredientTextView.setSelected(true);
+
+        if(ingredientsImageList != null && position < ingredientsImageList.size()){
+            String ingredientImage = ingredientsImageList.get(position);
+            if(TextUtils.isEmpty(ingredientImage)){
+                holder.ingredientImageView.setImageResource(R.drawable.no_image);
+            }else {
+                int resourceId = holder.itemView.getContext().getResources().getIdentifier(ingredientImage, "drawable", holder.itemView.getContext().getPackageName());
+                holder.ingredientImageView.setImageResource(resourceId);
+            }
+        } else{
+            holder.ingredientImageView.setImageResource(R.drawable.no_image);
+        }
 
         holder.ingredientImageView.setOnClickListener(new View.OnClickListener() {
             @Override

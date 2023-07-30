@@ -1,6 +1,5 @@
 package com.example.signuploginfirebase;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -189,7 +187,7 @@ public class HealthyFoodActivity extends AppCompatActivity {
         String json = null;
         try {
             AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("healthyfood 6.json");
+            InputStream inputStream = assetManager.open("healthyfood final.json");
 
             int size = inputStream.available();
             byte[] buffer = new byte[size];
@@ -256,10 +254,8 @@ public class HealthyFoodActivity extends AppCompatActivity {
             int resourceId = getResources().getIdentifier(resourceName, "drawable", getPackageName());
 
             if (resourceId != 0) {
-                // Set the image resource
                 foodImageView.setImageResource(resourceId);
             } else {
-                // Set a default image resource or handle the case when the image resource is not found
                 foodImageView.setImageResource(R.drawable.no_image);
             }
 
@@ -293,7 +289,6 @@ public class HealthyFoodActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
     }
-
 
     private void openFoodDetailsLayout(Food food) {
         Intent intent = new Intent(HealthyFoodActivity.this, FoodDetailsActivity.class);

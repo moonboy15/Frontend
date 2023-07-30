@@ -24,7 +24,6 @@ import java.util.List;
 public class FoodDetailsActivity extends AppCompatActivity {
 
     private RecyclerView ingredientsRecyclerView;
-    private IngredientsAdapter ingredientsAdapter;
     private LinearLayout recipeLayout;
     private Button seeRecipeButton;
     private TextView recipe_textView;
@@ -112,7 +111,6 @@ public class FoodDetailsActivity extends AppCompatActivity {
             }
         });
         ingredientsRecyclerView.setAdapter(adapter);
-
         recipe_textView.setText(foodRecipe);
 
         ImageView BtnBack = findViewById(R.id.button_details_back);

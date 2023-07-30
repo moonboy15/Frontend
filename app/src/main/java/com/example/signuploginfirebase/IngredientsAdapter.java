@@ -62,7 +62,6 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
             holder.ingredientImageView.setImageResource(R.drawable.no_image);
         }
 
-        // Set click listener for the ingredient image
         holder.ingredientImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

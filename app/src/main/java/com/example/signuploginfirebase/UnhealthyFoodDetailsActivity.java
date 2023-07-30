@@ -23,8 +23,6 @@ import java.util.List;
 public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
 
     private RecyclerView unhealthyIngredientsRecyclerView;
-
-    private UnhealthyIngredientsAdapter unhealthyIngredientsAdapter;
     private LinearLayout alternativeLayout;
     private Button seeAlternativeButton;
     private TextView alternative_textView;
@@ -59,6 +57,7 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         String foodAlternative = intent.getStringExtra("food_alternative");
         String foodDescription = intent.getStringExtra("food_description");
         ArrayList<String> ingredientList = intent.getStringArrayListExtra("food_ingredients");
+        ArrayList<String> ingredientsImageList = intent.getStringArrayListExtra("food_ingredients_image");
 
 
         TextView foodNameTextView = findViewById(R.id.textView_food_name_unhealthy);
@@ -97,12 +96,22 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         unhealthyIngredientsRecyclerView.setLayoutManager(layoutManager);
         unhealthyIngredientsRecyclerView.setHasFixedSize(true);
 
-        UnhealthyIngredientsAdapter adapter = new UnhealthyIngredientsAdapter(ingredientList, new IngredientsAdapter.OnIngredientClickListener() {
+        List<String> filteredIngredientsImageList = new ArrayList<>();
+        for (int i = 0; i < ingredientList.size(); i++) {
+            if (i < ingredientsImageList.size()) {
+                filteredIngredientsImageList.add(ingredientsImageList.get(i));
+            } else {
+                filteredIngredientsImageList.add(null);
+            }
+        }
+
+        UnhealthyIngredientsAdapter adapter = new UnhealthyIngredientsAdapter(ingredientList,filteredIngredientsImageList, new IngredientsAdapter.OnIngredientClickListener() {
             @Override
             public void onIngredientClick(String ingredient) {
                 openFoodDetailsForIngredient(ingredient);
             }
         });
+
         unhealthyIngredientsRecyclerView.setAdapter(adapter);
         alternative_textView.setText(foodAlternative);
 
@@ -150,6 +159,7 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         intent.putExtra("food_calories", food.getCalories());
         intent.putExtra("food_disbenefit", food.getDisbenefit());
         intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
+        intent.putExtra("food_ingredients_image", new ArrayList<>(food.getIngredientsImage()));
         startActivity(intent);
     }
 }

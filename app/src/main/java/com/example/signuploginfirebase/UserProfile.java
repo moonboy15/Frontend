@@ -9,17 +9,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputLayout;
 
 public class UserProfile extends AppCompatActivity {
 
-    TextInputLayout email, age, height, weight, sickness;
-    TextView fullName;
+    TextView fullName, email, age, height, weight, sickness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.profile_revision_draft);
 
         fullName = findViewById(R.id.fullName_profile);
 
@@ -54,11 +52,11 @@ public class UserProfile extends AppCompatActivity {
         String profile_sickness = intent.getStringExtra("sickness");
 
         fullName.setText(profile_name);
-        email.getEditText().setText(profile_email);
-        age.getEditText().setText(profile_age);
-        height.getEditText().setText(profile_height);
-        weight.getEditText().setText(profile_weight);
-        sickness.getEditText().setText(profile_sickness);
+        email.setText(profile_email);
+        age.setText(profile_age);
+        height.setText(profile_height);
+        weight.setText(profile_weight);
+        sickness.setText(profile_sickness);
 
     }
 }

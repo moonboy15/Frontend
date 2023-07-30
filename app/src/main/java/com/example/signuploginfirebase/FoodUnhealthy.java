@@ -18,6 +18,7 @@ public class FoodUnhealthy implements Parcelable {
     private String alternative;
     private List<String> ingredients;
     private String image;
+    private List<String> ingredientsImage;
 
 
     protected FoodUnhealthy(Parcel in) {
@@ -30,6 +31,7 @@ public class FoodUnhealthy implements Parcelable {
         alternative = in.readString();
         ingredients = in.createStringArrayList();
         image = in.readString();
+        ingredientsImage = in.createStringArrayList();
     }
 
     public static final Creator<FoodUnhealthy> CREATOR = new Creator<FoodUnhealthy>() {
@@ -44,7 +46,7 @@ public class FoodUnhealthy implements Parcelable {
         }
     };
 
-    public FoodUnhealthy(String name, String description, String image, String category, String type, int calories, String disbenefit, String alternative, List<String> ingredients) {
+    public FoodUnhealthy(String name, String description, String image, String category, String type, int calories, String disbenefit, String alternative, List<String> ingredients, List<String> ingredientsImage) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -54,6 +56,7 @@ public class FoodUnhealthy implements Parcelable {
         this.ingredients = ingredients;
         this.alternative = alternative;
         this.image = image;
+        this.ingredientsImage = ingredientsImage;
     }
 
     public void setIngredients(List<String> ingredients) {
@@ -88,6 +91,9 @@ public class FoodUnhealthy implements Parcelable {
     public String getImage() {
         return image;
     }
+    public List<String> getIngredientsImage() {
+        return ingredientsImage;
+    }
 
     @Override
     public int describeContents() {
@@ -105,6 +111,7 @@ public class FoodUnhealthy implements Parcelable {
         dest.writeString(alternative);
         dest.writeStringList(ingredients);
         dest.writeString(image);
+        dest.writeStringList(ingredientsImage);
     }
 }
 

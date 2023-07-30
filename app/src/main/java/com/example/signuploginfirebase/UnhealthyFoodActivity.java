@@ -62,18 +62,22 @@ public class UnhealthyFoodActivity extends AppCompatActivity {
 
 
                     List<String> ingredients = new ArrayList<>();
+                    List<String> ingredientsImageList = new ArrayList<>();
 
                     for (int j = 1; j <= 20; j++){
                         String ingredientKey = "ingredient " + j;
+                        String ingredientImageKey = "ingredient image "+ j;
 
-                        if (foodObject.has(ingredientKey)) {
+                        if (foodObject.has(ingredientKey) && foodObject.has(ingredientImageKey)){
                             String ingredient = foodObject.getString(ingredientKey);
+                            String ingredientImage = foodObject.getString(ingredientImageKey);
 
                             ingredients.add(ingredient);
+                            ingredientsImageList.add(ingredientImage);
                         }
                     }
 
-                    FoodUnhealthy food = new FoodUnhealthy(foodName, foodDescription, foodImage, foodCategory, foodType, foodCalories, foodDisbenefit,foodAlternative, ingredients);
+                    FoodUnhealthy food = new FoodUnhealthy(foodName, foodDescription, foodImage, foodCategory, foodType, foodCalories, foodDisbenefit,foodAlternative, ingredients, ingredientsImageList);
                     foodList.add(food);
                     food.setImage(foodImage);
                 }
@@ -181,7 +185,7 @@ public class UnhealthyFoodActivity extends AppCompatActivity {
         String json = null;
         try {
             AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("unhealthy 5.json");
+            InputStream inputStream = assetManager.open("unhealthy final.json");
 
             int size = inputStream.available();
             byte[] buffer = new byte[size];
@@ -298,6 +302,7 @@ public class UnhealthyFoodActivity extends AppCompatActivity {
         intent.putExtra("food_calories", food.getCalories());
         intent.putExtra("food_disbenefit", food.getDisbenefit());
         intent.putExtra("food_ingredients", new ArrayList<>(food.getIngredients()));
+        intent.putExtra("food_ingredients_image", new ArrayList<>(food.getIngredientsImage()));
         startActivity(intent);
     }
 }

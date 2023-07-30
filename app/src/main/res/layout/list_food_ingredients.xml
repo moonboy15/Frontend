@@ -40,7 +40,6 @@
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
-            android:text="1pc"
             android:textSize="16sp"
             android:textAlignment="center"
             android:fontFamily="@font/visby_extra_bold"

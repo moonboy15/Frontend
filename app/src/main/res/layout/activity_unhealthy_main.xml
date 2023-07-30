@@ -48,7 +48,7 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchEditText_unhealthy"
-            android:layout_width="320dp"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:background="@drawable/white_box"
             app:iconifiedByDefault="false"
