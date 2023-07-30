@@ -16,3 +16,6 @@ Having a healthy living lifestyle requires a lot of things to do, one is eating 
 Trello Link: https://trello.com/w/wortheat1
 Git Link: https://github.com/moonboy15/Lusog-App
 Lusog App APK: https://drive.google.com/file/d/1Hj_3eICdPwhPuDCWwWGQICWvJu_Zdh0K/view?fbclid=IwAR2UILN3e_uBxP_PFZU55w-SaTHI65yGonLGJcwgiPuOtQfiz3luAIxVvNU
+
+
+Note: Due to large file size, the Lusog app APK has been linked to this directory. 
