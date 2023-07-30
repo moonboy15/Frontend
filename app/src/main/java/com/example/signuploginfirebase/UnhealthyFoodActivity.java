@@ -181,7 +181,7 @@ public class UnhealthyFoodActivity extends AppCompatActivity {
         String json = null;
         try {
             AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("unhealthy 4.json");
+            InputStream inputStream = assetManager.open("unhealthy 5.json");
 
             int size = inputStream.available();
             byte[] buffer = new byte[size];
