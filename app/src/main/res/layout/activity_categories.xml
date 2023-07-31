@@ -37,8 +37,9 @@
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="190dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp">
 
             <RelativeLayout
@@ -72,32 +73,33 @@
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="140dp"
-                android:layout_height="130dp"
+                android:layout_width="130dp"
+                android:layout_height="140dp"
                 android:src="@drawable/healthyicon1"
-                android:layout_marginTop="-20dp"
+                android:layout_marginTop="-30dp"
                 android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/button_unhealthyFood"
-            android:layout_width="match_parent"
+            android:layout_width="321dp"
             android:layout_height="150dp"
             android:layout_margin="20dp"
+            android:layout_gravity="center"
             android:background="@drawable/category_btn_red">
 
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:background="@drawable/chicharon_png"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/visby_extra_bold"
-                android:padding="25dp"
+                android:padding="23dp"
                 android:text="@string/unhealthy_header"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/white_smoke"
@@ -107,18 +109,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-1dp"
                 android:background="#00FFFFFF"
-                android:padding="15dp"
+                android:padding="20dp"
                 android:text="@string/unhealthy_subtext"
-                android:textColor="@color/white_smoke"/>
+                android:textColor="@color/white_smoke" />
 
         </RelativeLayout>
 
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="190dp"
+            android:layout_gravity="center"
             android:layout_marginBottom="30dp">
 
             <RelativeLayout
