@@ -2,6 +2,7 @@ package com.example.signuploginfirebase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -122,6 +123,7 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
     }
     private void toggleAlternativeLayout() {
         if (alternativeLayout.getVisibility() == View.VISIBLE) {
@@ -131,19 +133,80 @@ public class UnhealthyFoodDetailsActivity extends AppCompatActivity {
         }
     }
 
-    private void openFoodDetailsForIngredient(String ingredient){
-        FoodUnhealthy clickedFood = null;
-        for (FoodUnhealthy food: foodList){
-            if(food.getName().toLowerCase().equals(ingredient.toLowerCase())){
-                clickedFood = food;
+    private boolean isIngredientClickInProgress = false;
+    private void openFoodDetailsForIngredient(String ingredient) {
+        if (isIngredientClickInProgress) {
+            return;
+        }
+
+        isIngredientClickInProgress = true;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isIngredientClickInProgress = false;
+            }
+        }, 500);
+
+        boolean foundFood = false;
+        for (FoodUnhealthy food : foodList) {
+            if (food.getName().equalsIgnoreCase(ingredient)) {
+                foundFood = true;
+                // Update the activity with the new food details
+                TextView foodNameTextView = findViewById(R.id.textView_food_name_unhealthy);
+                TextView foodCategoryTextView = findViewById(R.id.textView_food_category_unhealthy);
+                TextView foodTypeTextView = findViewById(R.id.textView_food_type_unhealthy);
+                TextView foodCaloriesTextView = findViewById(R.id.textView_food_calories_unhealthy);
+                TextView foodDisbenefitTextView = findViewById(R.id.textView_food_disbenefit);
+                TextView foodDescriptionTextView = findViewById(R.id.textView_food_description_unhealthy);
+                ImageView foodImageView = findViewById(R.id.foodDetail_imageView_unhealthy);
+
+                foodNameTextView.setText(food.getName());
+                foodCategoryTextView.setText(food.getCategory());
+                foodTypeTextView.setText(food.getType());
+                foodCaloriesTextView.setText(String.valueOf(food.getCalories()));
+                foodDisbenefitTextView.setText(food.getDisbenefit());
+                foodDescriptionTextView.setText(food.getDescription());
+
+
+                String foodImage = food.getImage();
+                if (foodImage != null) {
+                    int resourceId = getResources().getIdentifier(foodImage, "drawable", getPackageName());
+                    if (resourceId != 0) {
+                        Drawable foodImageDrawable = ContextCompat.getDrawable(this, resourceId);
+                        foodImageView.setImageDrawable(foodImageDrawable);
+                    } else {
+                        foodImageView.setImageResource(R.drawable.no_image);
+                    }
+                } else {
+                    foodImageView.setImageResource(R.drawable.no_image);
+                }
+
+                List<String> ingredientList = food.getIngredients();
+                List<String> ingredientsImageList = food.getIngredientsImage();
+
+                List<String> filteredIngredientsImageList = new ArrayList<>();
+                for (int i = 0; i < ingredientList.size(); i++) {
+                    if (i < ingredientsImageList.size()) {
+                        filteredIngredientsImageList.add(ingredientsImageList.get(i));
+                    } else {
+                        filteredIngredientsImageList.add(null);
+                    }
+                }
+
+                UnhealthyIngredientsAdapter adapter = new UnhealthyIngredientsAdapter(ingredientList, filteredIngredientsImageList, new IngredientsAdapter.OnIngredientClickListener() {
+                    @Override
+                    public void onIngredientClick(String ingredient) {
+                        openFoodDetailsForIngredient(ingredient);
+                    }
+                });
+                unhealthyIngredientsRecyclerView.setAdapter(adapter);
+                alternative_textView.setText(food.getAlternative());
+
                 break;
             }
         }
-
-        if (clickedFood != null){
-            openFoodDetailsLayout(clickedFood);
-        }else {
-            Toast.makeText(this, "No food found for ingredient: "+  ingredient, Toast.LENGTH_SHORT).show();
+        if (!foundFood){
+            Toast.makeText(this, "No food details for selected food/ingredient", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -10,6 +10,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="bmi_header">BMI \nCalculator</string>
     <string name="offline_string"> <u>Proceed in offline mode</u></string>
+    <string name="food_benefit_dialog">Food Benefits</string>
 
     <string-array name="food_benefits">
         <item>All</item>

@@ -18,25 +18,20 @@
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginTop="3dp"
-            android:padding="8dp"
+            android:padding="10dp"
             android:src="@drawable/back" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/deep_red">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="left"
-                android:text="Unhealthy Food Category"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="@color/white_smoke"
-                android:fontFamily="@font/visby_heavy"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:layout_gravity="center"
+            android:text="Unhealthy Food Category"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white_smoke"
+            android:fontFamily="@font/visby_heavy"/>
 
-        </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
 
 
@@ -48,8 +43,9 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchEditText_unhealthy"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="14dp"
             android:background="@drawable/white_box"
             app:iconifiedByDefault="false"
             app:queryHint="Search Unhealthy Food" />
@@ -57,7 +53,6 @@
         <Spinner
             android:background="@drawable/ic_filter2"
             android:id="@+id/spinner_tags_unhealthy"
-            android:layout_marginStart="30dp"
             android:padding="10dp"
             android:gravity="center"
             android:layout_width="35dp"

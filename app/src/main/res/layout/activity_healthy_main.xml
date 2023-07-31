@@ -1,136 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HealthyFoodActivity"
-    android:background="@color/pale_green">
+    android:background="@color/pale_green"
+    android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="40dp"
+        android:background="@color/lime_green">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/button_list_to_categories"
+            android:layout_width="50dp"
             android:layout_height="40dp"
-            android:background="@color/lime_green">
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:src="@drawable/back" />
 
-            <ImageView
-                android:id="@+id/button_list_to_categories"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="3dp"
-                android:padding="8dp"
-                android:src="@drawable/back" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/lime_green">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="left"
-                    android:fontFamily="@font/visby_heavy"
-                    android:text="Healthy Food Category"
-                    android:textColor="@color/white"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
-
-            </androidx.appcompat.widget.Toolbar>
-        </LinearLayout>
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/lime_green">
+            android:layout_gravity="center"
+            android:layout_marginTop="2.5dp"
+            android:fontFamily="@font/visby_heavy"
+            android:text="Healthy Food Category"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchEditText"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/white_box"
-                app:iconifiedByDefault="false"
-                app:queryHint="Search Healthy Food" />
 
-            <Spinner
-                android:id="@+id/spinner_tags"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/ic_filter2"
-                android:gravity="center"
-                android:padding="10dp" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@color/white_smoke">
-
-            <LinearLayout
-                android:id="@+id/foodTypesLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@color/lime_green">
-                <Button
-                    android:id="@+id/button_dish"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/box_lime_green"
-                    android:text="Dish"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/visby_extra_bold"/>
-                <Button
-                    android:id="@+id/button_drink"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/box_lime_green"
-                    android:text="Drink"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/visby_extra_bold"/>
-                <Button
-                    android:id="@+id/button_ingredient"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/box_lime_green"
-                    android:text="Ingredient"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/visby_extra_bold"/>
-                <Button
-                    android:id="@+id/button_snack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/box_lime_green"
-                    android:text="Snack"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/visby_extra_bold"/>
-                <Button
-                    android:id="@+id/button_misc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/box_lime_green"
-                    android:text="Misc."
-                    android:textSize="18sp"
-                    android:fontFamily="@font/visby_extra_bold"/>
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
-
-        <ListView
-            android:id="@+id/foodListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="12dp"
-            android:divider="@color/pale_green"
-            android:dividerHeight="15dp" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lime_green">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="14dp"
+            android:background="@drawable/white_box"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search Healthy Food" />
+
+        <Spinner
+            android:id="@+id/spinner_tags"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_filter2"
+            android:padding="10dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white_smoke">
+
+        <LinearLayout
+            android:id="@+id/foodTypesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/lime_green"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/box_lime_green"
+                android:fontFamily="@font/visby_extra_bold"
+                android:text="Dish"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button_drink"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/box_lime_green"
+                android:fontFamily="@font/visby_extra_bold"
+                android:text="Drink"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/box_lime_green"
+                android:fontFamily="@font/visby_extra_bold"
+                android:text="Ingredient"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/box_lime_green"
+                android:fontFamily="@font/visby_extra_bold"
+                android:text="Snack"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button_misc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/box_lime_green"
+                android:fontFamily="@font/visby_extra_bold"
+                android:text="Misc."
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <ListView
+        android:id="@+id/foodListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:divider="@color/pale_green"
+        android:dividerHeight="15dp" />
+
+</LinearLayout>

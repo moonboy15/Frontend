@@ -1,8 +1,11 @@
 package com.example.signuploginfirebase;
 
 
+import static com.google.firebase.database.core.RepoManager.clear;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -129,20 +132,80 @@ public class FoodDetailsActivity extends AppCompatActivity {
             recipeLayout.setVisibility(View.VISIBLE);
         }
     }
+    private boolean isIngredientClickInProgress = false;
+    private void openFoodDetailsForIngredient(String ingredient) {
+        if (isIngredientClickInProgress) {
+            return;
+        }
 
-    private void openFoodDetailsForIngredient(String ingredient){
-        Food clickedFood = null;
-        for (Food food: foodList){
-            if(food.getName().toLowerCase().equals(ingredient.toLowerCase())){
-                clickedFood = food;
+        isIngredientClickInProgress = true;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isIngredientClickInProgress = false;
+            }
+        }, 500);
+
+        boolean foundFood = false;
+        for (Food food : foodList) {
+            if (food.getName().equalsIgnoreCase(ingredient)) {
+                foundFood = true;
+                // Update the activity with the new food details
+                TextView foodNameTextView = findViewById(R.id.textView_food_name);
+                TextView foodCategoryTextView = findViewById(R.id.textView_food_category);
+                TextView foodTypeTextView = findViewById(R.id.textView_food_type);
+                TextView foodCaloriesTextView = findViewById(R.id.textView_food_calories);
+                TextView foodBenefitTextView = findViewById(R.id.textView_food_benefit);
+                TextView foodDescriptionTextView = findViewById(R.id.textView_food_description);
+                ImageView foodImageView = findViewById(R.id.foodDetail_imageView);
+
+                foodNameTextView.setText(food.getName());
+                foodCategoryTextView.setText(food.getCategory());
+                foodTypeTextView.setText(food.getType());
+                foodCaloriesTextView.setText(String.valueOf(food.getCalories()));
+                foodBenefitTextView.setText(food.getBenefit());
+                foodDescriptionTextView.setText(food.getDescription());
+
+                String foodImage = food.getImage();
+                if (foodImage != null) {
+                    int resourceId = getResources().getIdentifier(foodImage, "drawable", getPackageName());
+                    if (resourceId != 0) {
+                        Drawable foodImageDrawable = ContextCompat.getDrawable(this, resourceId);
+                        foodImageView.setImageDrawable(foodImageDrawable);
+                    } else {
+                        foodImageView.setImageResource(R.drawable.no_image);
+                    }
+                } else {
+                    foodImageView.setImageResource(R.drawable.no_image);
+                }
+
+                List<String> ingredientList = food.getIngredients();
+                List<String> measurementList = food.getMeasurements();
+                List<String> ingredientsImageList = food.getIngredientsImage();
+
+                List<String> filteredIngredientsImageList = new ArrayList<>();
+                for (int i = 0; i < ingredientList.size(); i++) {
+                    if (i < ingredientsImageList.size()) {
+                        filteredIngredientsImageList.add(ingredientsImageList.get(i));
+                    } else {
+                        filteredIngredientsImageList.add(null);
+                    }
+                }
+
+                IngredientsAdapter adapter = new IngredientsAdapter(ingredientList, measurementList, filteredIngredientsImageList, new IngredientsAdapter.OnIngredientClickListener() {
+                    @Override
+                    public void onIngredientClick(String ingredient) {
+                        openFoodDetailsForIngredient(ingredient);
+                    }
+                });
+                ingredientsRecyclerView.setAdapter(adapter);
+                recipe_textView.setText(food.getRecipe());
+
                 break;
             }
         }
-
-        if (clickedFood != null){
-            openFoodDetailsLayout(clickedFood);
-        }else {
-            Toast.makeText(this, "No food found for ingredient: "+  ingredient, Toast.LENGTH_SHORT).show();
+        if (!foundFood){
+            Toast.makeText(this, "No food details for selected food/ingredient", Toast.LENGTH_SHORT).show();
         }
     }
 
