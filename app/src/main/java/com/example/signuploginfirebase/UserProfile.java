@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class UserProfile extends AppCompatActivity {
@@ -36,6 +37,19 @@ public class UserProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UserProfile.this, CategoriesActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button BtnSignOut = findViewById(R.id.signout_button);
+
+        BtnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserProfile.this, LoginActivity.class);
+                startActivity(intent);
+
+                Toast.makeText(UserProfile.this, "Signed out", Toast.LENGTH_SHORT).show();
+
             }
         });
 

@@ -256,4 +256,20 @@
         </LinearLayout>
     </LinearLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signout_button"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:text="Sign out"
+        android:textSize="16sp"
+        android:fontFamily="@font/visby_extra_bold"
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/deep_red"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
